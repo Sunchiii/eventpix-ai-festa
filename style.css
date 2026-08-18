@@ -1,0 +1,126 @@
+/* Self-hosted so the deck renders identically with no network at the venue. */
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-700.css';
+@import '@fontsource/work-sans/latin-400.css';
+@import '@fontsource/work-sans/latin-500.css';
+@import '@fontsource/work-sans/latin-600.css';
+@import '@fontsource/geist-mono/latin-400.css';
+@import '@fontsource/geist-mono/latin-600.css';
+@import '@fontsource/noto-sans-lao/lao-400.css';
+@import '@fontsource/noto-sans-lao/lao-600.css';
+
+/*
+ * EventPix brand primitives — Red + Charcoal + White (Brand Guideline v1.0).
+ * Values copied from the shipped app: eventpix/frontend/app/globals.css.
+ * NOT from design.md, which is an unshipped proposal (marigold/lacquer never landed).
+ */
+:root {
+  --ep-primary: #e60023;                      /* Primary Red */
+  --ep-primary-soft: #fff1f2;
+  --ep-primary-fg: #fafafa;
+  --ep-deep-red: #b8001c;                     /* Deep Red */
+  --ep-bg: #ffffff;
+  --ep-fg: #111820;                           /* Charcoal */
+  --ep-muted: #f7f7f7;                        /* Light Gray */
+  --ep-muted-fg: #737373;
+  --ep-border: #e5e5e5;
+  --ep-border-subtle: rgba(17, 24, 32, 0.06);
+  --ep-ring-soft: rgba(230, 0, 35, 0.25);
+  --ep-radius: 0.625rem;                      /* 10px base */
+
+  --slidev-theme-primary: #e60023;
+}
+
+/* The landing forces `className="dark"` on individual bands (final-cta,
+   CameraPipeline tone="dark"); the deck's cover and section breaks do the same. */
+.ep-dark {
+  --ep-primary: #ff2d3d;
+  --ep-primary-soft: rgba(255, 45, 61, 0.16);
+  --ep-bg: #0a0a0a;
+  --ep-fg: #fafafa;
+  --ep-muted: #262626;
+  --ep-muted-fg: #a1a1a1;
+  --ep-border: rgba(255, 255, 255, 0.1);
+  --ep-border-subtle: rgba(148, 163, 184, 0.2);
+  --ep-ring-soft: rgba(255, 45, 61, 0.45);
+}
+
+.slidev-layout {
+  background: var(--ep-bg);
+  color: var(--ep-fg);
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: var(--ep-fg);
+  letter-spacing: -0.02em;
+}
+.slidev-layout h1 { font-weight: 600; }
+
+.accent { color: var(--ep-primary); }
+.deep { color: var(--ep-deep-red); }
+.muted { color: var(--ep-muted-fg); }
+.subtle { color: var(--ep-muted-fg); opacity: .8; }
+
+/* Prices, bib numbers, IDs and percentages are product data — always the mono face,
+   matching the app's `font-mono ... tabular-nums` treatment. */
+.data {
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.lao { font-family: 'Noto Sans Lao', sans-serif; }
+
+.slidev-layout a { color: var(--ep-primary); }
+
+.slidev-layout code {
+  background: var(--ep-muted);
+  border-radius: 6px;
+  padding: .1em .3em;
+  font-size: .9em;
+}
+.slidev-layout pre code { background: none; padding: 0; }
+
+.slidev-layout table { font-size: .85em; }
+.slidev-layout th { color: var(--ep-muted-fg); font-weight: 600; }
+.slidev-layout td, .slidev-layout th { border-color: var(--ep-border); }
+
+/* Buttons and badges in the app are rounded-4xl (26px) — a pill at these heights. */
+.chip {
+  display: inline-flex; align-items: center; gap: .4em;
+  border: 1px solid var(--ep-border);
+  border-radius: 26px;
+  padding: .35em .9em;
+  font-size: .8rem;
+  color: var(--ep-muted-fg);
+}
+
+/* ui/card.tsx: rounded-2xl with a ring at 10% foreground, and no drop shadow. */
+.card {
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ep-fg) 10%, transparent);
+  background: var(--ep-bg);
+  padding: 1rem 1.1rem;
+}
+.card-soft {
+  background: var(--ep-primary-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ep-primary) 20%, transparent);
+}
+
+/* The real face-search result header (gallery-page.tsx). */
+.match-chip {
+  display: inline-flex; align-items: center; gap: .5em;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--ep-primary) 20%, transparent);
+  background: color-mix(in srgb, var(--ep-primary) 5%, transparent);
+  padding: .5rem 1rem;
+  font-size: .85rem;
+}
+
+.slidev-layout .slidev-page-number,
+.slidev-layout footer { color: var(--ep-muted-fg); }
+
+/* Mermaid renders at its natural width; centre it in the canvas. */
+.slidev-layout .mermaid { display: flex; justify-content: center; }
