@@ -1,0 +1,1 @@
+var e=`/landing/mosaic-02.696fdf3f.webp`;export{e as t};
