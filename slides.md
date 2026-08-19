@@ -10,7 +10,7 @@ info: |
 class: text-left ep-dark
 transition: slide-left
 comark: true
-duration: 10min
+duration: 6min
 fonts:
   # Families are self-hosted via @fontsource (imported in style.css), so the deck
   # never depends on a network connection at the venue.
@@ -67,11 +67,10 @@ layout: cover
 </style>
 
 <!--
-[0:00 — 0:30] Open with the name and the promise, then get off this slide fast.
+[0:00 — 0:20] Name and promise, then get off this slide fast.
 
-"EventPix is an AI-powered photo platform for events. Two sentences: guests find
-themselves in thousands of photos by taking a selfie. Photographers get paid for
-the photos they take. We built it for the Lao market."
+"EventPix is an AI photo platform for events. A guest takes a selfie and gets every
+photo they're in. The photographer gets paid. Built for Laos, and we built all of it."
 -->
 
 ---
@@ -80,77 +79,34 @@ layout: default
 
 # The week after every event
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="mt-8 space-y-5">
 
-<div v-click>
-
-### For the photographer
-
-A marathon produces <span class="data accent">8,000</span> photos in one morning.
-Then the messages start.
-
-<div class="card mt-4 italic muted">
-"Can you send me the ones I'm in?"
+<div v-click class="grid grid-cols-[auto_1fr] gap-4 items-baseline">
+  <div class="data accent text-2xl">1</div>
+  <p class="text-lg">You just ran a marathon. Somewhere in the <span class="data accent">8,000</span> photos shot that morning there are five of you — and you would pay for them.</p>
 </div>
 
-<p class="mt-4 muted text-sm">
-Answered by hand, one guest at a time, for a week. The photos that nobody asks for
-are never seen and never paid for.
-</p>
-
+<div v-click class="grid grid-cols-[auto_1fr] gap-4 items-baseline">
+  <div class="data accent text-2xl">2</div>
+  <p class="text-lg">The album link arrives three days late with thousands of photos in it. You scroll for ten minutes and give up.</p>
 </div>
 
-<div v-click>
-
-### For the guest
-
-The album link arrives three days late. It has thousands of photos in it.
-You scroll for ten minutes, give up, and never see the one good picture
-somebody took of you.
-
-<p class="mt-4 muted text-sm">
-No app to install. No account. If finding yourself takes more than a few seconds,
-it doesn't happen at all.
-</p>
-
+<div v-click class="grid grid-cols-[auto_1fr] gap-4 items-baseline">
+  <div class="data accent text-2xl">3</div>
+  <p class="text-lg">You find one anyway — and checkout asks for a card most people here don't have. So you message the photographer: <span class="italic muted">"can you send me the ones I'm in?"</span></p>
 </div>
 
 </div>
 
-<div v-click class="mt-8 text-lg">
+<div v-click class="mt-8 text-xl">
 The photo exists. The person in it never sees it. <span class="accent">Nobody gets paid.</span>
 </div>
 
 <!--
-[0:30 — 1:20] This is the emotional setup. Don't rush it — the judges have all
-been in an event WhatsApp group waiting for photos.
+[0:20 — 0:50] The emotional setup as one person's story. Three clicks, one line each:
+I want the photos → I can't find them → I can't pay for them.
 
-Land the last line and pause before the next slide.
--->
-
----
-layout: center
-class: text-center
----
-
-<div class="relative inline-block mb-8">
-  <img src="/landing/mosaic-09.996a1151.webp" class="h-[190px] rounded-xl object-cover" alt="" />
-  <FaceBox :conf="97" show-score top="12%" left="36%" width="26%" height="27%" />
-</div>
-
-<h2 class="max-w-3xl mx-auto leading-snug">
-EventPix exists for one emotional beat: the instant a person sees
-<span class="accent">themselves</span> in a photo they didn't know existed.
-</h2>
-
-<p class="mt-6 subtle text-sm">Everything else in the product is in service of that moment.</p>
-
-<!--
-[1:20 — 1:45] Say the sentence, let it sit for a beat, move on.
-
-The corner ticks are the app's real face-detection treatment. They are white, not
-brand red, on purpose: red rectangles over red-heavy event photography read as an
-error state.
+Beat 3 sets up the bank-app payment argument later. Land the last line, pause, move on.
 -->
 
 ---
@@ -172,17 +128,28 @@ previews, and takes payment through the bank apps your guests already use.
   <PipelineStage n="03" title="Contributors" detail="A fleet of photographers on one event, paid per photo they shot." />
 </div>
 
+<p class="mt-3 text-xs subtle">Connect → shoot → process → publish → find. Nothing goes public until the creator releases the batch.</p>
+
 </div>
 
 ::right::
 
-<img src="/landing/app-mobile-search.fbd95176.webp" class="rounded-xl border border-white/10 shadow-2xl max-h-[380px] mx-auto" alt="Face search results on a phone" />
+<img src="/landing/app-mobile-search.fbd95176.webp" class="rounded-xl border border-white/10 shadow-2xl max-h-[268px] mx-auto" alt="Face search results on a phone" />
 
-<p class="text-center text-xs subtle mt-3">Two event modes: <b>Monetized</b> (watermarked previews, paid downloads) or <b>Sharing</b> (free).</p>
+<div class="grid grid-cols-2 gap-3 mt-3">
+  <div>
+    <img src="/landing/monetized-card.c02cb81e.webp" class="rounded-lg border border-white/10 h-[72px] w-full object-cover" alt="A monetized event" />
+    <p class="text-center text-xs mt-1"><b>Monetized</b> <span class="muted">— watermarked previews, paid downloads</span></p>
+  </div>
+  <div>
+    <img src="/landing/sharing-card.d2ebb1ab.webp" class="rounded-lg border border-white/10 h-[72px] w-full object-cover" alt="A sharing event" />
+    <p class="text-center text-xs mt-1"><b>Sharing</b> <span class="muted">— free for everyone</span></p>
+  </div>
+</div>
 
 <!--
-[1:45 — 2:20] One sentence of what it is, then the three roles. Keep it tight —
-the demo does the real explaining.
+[0:50 — 1:10] One sentence of what it is, then the three roles, then the pipeline line
+in a single breath. Don't elaborate — the demo does the real explaining.
 -->
 
 ---
@@ -220,200 +187,117 @@ of our idea of it.
 </div>
 
 <!--
-[2:20 — 3:10] THE MONEY SLIDE. Shut up and let it play once through.
+[1:10 — 1:50] THE MONEY SLIDE. Shut up and let it play once through.
 
 Narrate only: "guest opens the gallery link… takes a selfie… and that's every
 photo she's in, sorted by confidence."
 
 If the video does not autoplay, click it. Poster frame is set so a still is never blank.
--->
 
----
-layout: default
----
-
-# One product, every event's colors
-
-<div class="grid grid-cols-2 gap-10 mt-6">
-
-<div>
-
-The app chrome is always EventPix red. The **public gallery** is not — a creator picks a
-theme and the event wears its own colors, scoped so it never leaks into the rest of the product.
-
-<div class="mt-5 space-y-2 text-sm">
-  <div class="flex items-center gap-3"><span class="sw" style="background:#D6336C" /> Wedding <span class="data subtle ml-auto">#D6336C</span></div>
-  <div class="flex items-center gap-3"><span class="sw" style="background:#1D6FE8" /> Marathon <span class="data subtle ml-auto">#1D6FE8</span></div>
-  <div class="flex items-center gap-3"><span class="sw" style="background:#C9A24A" /> Corporate <span class="data subtle ml-auto">#C9A24A</span></div>
-  <div class="flex items-center gap-3"><span class="sw" style="background:#7C3AED" /> Party <span class="data subtle ml-auto">#7C3AED</span></div>
-  <div class="flex items-center gap-3"><span class="sw sw-custom" /> Custom <span class="data subtle ml-auto">creator-picked</span></div>
-</div>
-
-<p class="mt-5 text-xs subtle">
-So the marathon gallery you just saw is blue by design, not by accident.
-</p>
-
-</div>
-
-<div class="grid grid-cols-3 gap-3">
-  <img src="/landing/cta-phone-running.0fbb21f3.webp" class="rounded-xl w-full" alt="Marathon-themed gallery" />
-  <img src="/landing/cta-phone-wedding.c1e781e1.webp" class="rounded-xl w-full" alt="Wedding-themed gallery" />
-  <img src="/landing/cta-phone-corporate.a2e9e6f3.webp" class="rounded-xl w-full" alt="Corporate-themed gallery" />
-</div>
-
-</div>
-
-<style scoped>
-.sw { width: 18px; height: 18px; border-radius: 6px; display: inline-block; }
-.sw-custom { background: conic-gradient(#e60023, #1D6FE8, #7C3AED, #C9A24A, #e60023); }
-</style>
-
-<!--
-[cut this slide first if the clock is tight — it is the only one that is explanation
-rather than argument]
-
-It earns its place if a judge notices the demo gallery is blue while the deck is red.
-Answer before they ask: the gallery is themed per event, five presets plus custom.
--->
-
----
-layout: default
----
-
-# End to end
-
-<div class="grid grid-cols-5 gap-3 mt-6">
-
-<div v-click class="card">
-  <div class="data accent text-xs">01</div>
-  <div class="font-semibold mt-1">Connect</div>
-  <p class="text-xs muted mt-2">Scan a QR to pair the phone app, or drop SFTP credentials into the camera.</p>
-</div>
-
-<div v-click class="card">
-  <div class="data accent text-xs">02</div>
-  <div class="font-semibold mt-1">Shoot</div>
-  <p class="text-xs muted mt-2">Photos upload straight from the camera. No laptop at the venue.</p>
-</div>
-
-<div v-click class="card">
-  <div class="data accent text-xs">03</div>
-  <div class="font-semibold mt-1">Process</div>
-  <p class="text-xs muted mt-2">EXIF, thumbnail, face embeddings, bib OCR and a safety check run automatically.</p>
-</div>
-
-<div v-click class="card">
-  <div class="data accent text-xs">04</div>
-  <div class="font-semibold mt-1">Publish</div>
-  <p class="text-xs muted mt-2">Nothing goes public until the creator releases the batch.</p>
-</div>
-
-<div v-click class="card">
-  <div class="data accent text-xs">05</div>
-  <div class="font-semibold mt-1">Find</div>
-  <p class="text-xs muted mt-2">A guest opens the link, takes a selfie or types a bib number, and buys.</p>
-</div>
-
-</div>
-
-<div v-click class="grid grid-cols-3 gap-4 mt-8">
-  <img src="/landing/route-qr.c084b3d7.webp" class="rounded-lg border border-white/10 h-[120px] w-full object-cover" alt="QR pairing" />
-  <img src="/landing/camera-back-lcd.2396f42a.webp" class="rounded-lg border border-white/10 h-[120px] w-full object-cover" alt="Camera back LCD" />
-  <img src="/landing/live-gallery-monitor.65743da0.webp" class="rounded-lg border border-white/10 h-[120px] w-full object-cover" alt="Live gallery monitor" />
-</div>
-
-<!--
-[3:10 — 3:50] Five steps, five clicks. Do not read the cards out loud — say the
-verb and add one detail.
-
-Step 4 is worth a sentence: publishing is explicit, so a bad frame never reaches
-the public gallery by accident.
--->
-
----
-layout: section
-class: text-center ep-dark
----
-
-# The AI
-
-<p class="text-xl mt-4 muted">
-Every model runs on <span class="accent">our own infrastructure</span>.
-</p>
-
-<p class="mt-6 subtle text-sm">Not one LLM API call in the codebase.</p>
-
-<!--
-[3:50 — 4:00] Section break. This is the part the competition is actually judging,
-so signpost it clearly.
+If a judge asks why the demo gallery is blue while the deck is red: the public gallery is
+themed per event — five presets in the product (wedding, marathon, corporate, party, custom)
+and marathon ships blue. The app chrome is always EventPix red.
 -->
 
 ---
 layout: two-cols-header
 ---
 
-# Face search
+# The AI · Face search
 
 ::left::
 
 <div class="pr-6 text-sm">
 
-**Model** — InsightFace `buffalo_l` (ArcFace) on ONNX Runtime, self-hosted.
-Detection size <span class="data">640</span>, threshold <span class="data">0.5</span>.
+Every model runs on <span class="accent">our own infrastructure</span>. No third-party
+AI service ever sees a photo, and there is not one LLM API call in the codebase.
 
-**Index time** — every detected face becomes a <span class="data accent">512-dim</span>
-embedding, stored per photo. One photo, many faces.
+**A face becomes a fingerprint.** Not a picture — a private mathematical signature
+of the face, and there is no way back from it to the photo.
 
-**Query time** — the guest's selfie is embedded, then matched by
-<span class="accent">cosine distance</span> across the event.
+**Every face, the moment it is uploaded.** Per face, not per photo: a group shot of
+eight people can be found by any one of the eight.
 
-<div class="mt-4 space-y-2">
-  <PipelineStage n="→" title="Threshold 0.6" detail="Distance above this is not a match." />
-  <PipelineStage n="→" title="confidence = 1 − distance" detail="What the results are ranked by." />
-  <PipelineStage n="→" title="MIN() per photo" detail="A photo scores on its best-matching face." />
-</div>
+**The search compares fingerprint to fingerprint** — never photo against photo — and
+ranks what it finds by how confident it is. All of it inside our own system.
 
 </div>
 
 ::right::
 
-```sql
--- backend/src/modules/search/service.ts
-SELECT i.id,
-       MIN(emb::vector <=> $selfie::vector)
-         AS distance
-FROM   items i,
-       jsonb_array_elements(i.face_embeddings) emb
-WHERE  i.event_id = $event
-  AND  i.is_published
-  AND  i.deleted_at IS NULL
-GROUP  BY i.id
-HAVING MIN(emb::vector <=> $selfie::vector) < 0.6
-ORDER  BY distance ASC;
-```
-
-<div class="flex items-center gap-3 mt-5 justify-center">
-  <div class="relative">
-    <img src="/landing/mosaic-02.696fdf3f.webp" class="h-[92px] w-[92px] rounded-xl object-cover" alt="" />
-    <FaceBox :conf="97" show-score top="18%" left="30%" width="34%" height="34%" />
+<div v-click class="flex items-center gap-4">
+  <div class="relative shrink-0">
+    <img src="/landing/mosaic-02.696fdf3f.webp" class="h-[64px] w-[64px] rounded-xl object-cover" alt="" />
+    <FaceBox top="20%" left="28%" width="38%" height="38%" />
   </div>
-  <span class="match-chip"><b>6</b> face matches found</span>
+  <div>
+    <div class="data accent text-xs">01</div>
+    <div class="font-semibold text-sm">Her selfie</div>
+    <p class="text-xs muted !mt-0">A query, not an upload. Deleted within the hour.</p>
+  </div>
 </div>
 
-<p class="text-center text-xs subtle mt-4 px-6">
+<div v-click>
+
+<div class="accent text-center text-base leading-none !my-0.5"><carbon:arrow-down /></div>
+
+<div class="card card-soft !py-2">
+  <div class="data accent text-xs">02</div>
+  <div class="font-semibold text-sm">A private fingerprint</div>
+  <div class="data text-xs !mt-1 whitespace-nowrap overflow-hidden">[ 0.021, −0.144, 0.907, −0.038, 0.612, … ]</div>
+  <p class="text-xs muted !mt-1">A fingerprint, not a photo. Faces are never compared as pixels.</p>
+</div>
+
+</div>
+
+<div v-click>
+
+<div class="accent text-center text-base leading-none !my-0.5"><carbon:arrow-down /></div>
+
+<div class="data accent text-xs">03</div>
+<div class="font-semibold text-sm">Ranked against every face at the event</div>
+
+<div class="flex items-end gap-3 mt-2">
+  <div class="relative shrink-0 mb-5">
+    <img src="/landing/mosaic-05.ccf372cc.webp" class="h-[56px] w-[56px] rounded-lg object-cover" alt="" />
+    <FaceBox :conf="97" show-score top="18%" left="30%" width="36%" height="36%" />
+  </div>
+  <div class="relative shrink-0 mb-5">
+    <img src="/landing/mosaic-09.996a1151.webp" class="h-[56px] w-[56px] rounded-lg object-cover" alt="" />
+    <FaceBox :conf="91" show-score top="18%" left="30%" width="36%" height="36%" />
+  </div>
+  <div class="relative shrink-0 mb-5">
+    <img src="/landing/mosaic-14.dd2f62eb.webp" class="h-[56px] w-[56px] rounded-lg object-cover" alt="" />
+    <FaceBox :conf="88" show-score top="18%" left="30%" width="36%" height="36%" />
+  </div>
+  <span class="match-chip mb-5"><b>6</b> face matches found</span>
+</div>
+
+<p class="text-xs subtle !mt-3">
 The backend ranks every result by confidence; the gallery currently surfaces the match
 <i>count</i>, and the per-photo score is available but not yet shown.
 </p>
 
+</div>
+
 <!--
-[4:00 — 4:50] The technical core. Judges will want to see that we understand what
-we built, not that we called an API.
+[1:50 — 2:20] The core of the pitch. Open with the self-hosted line — it is the whole
+differentiator — then walk the three steps: selfie, fingerprint, ranked matches.
 
-Key beat: embeddings are per FACE, not per photo — a group shot carries eight
-embeddings and can be found by any of the eight people in it.
+DELIBERATELY NOT ON THE SLIDE: the model, its dimensions and the thresholds. They are
+ours. Speak at the level of the slide and let the fingerprint metaphor do the work.
 
-If asked about the score: it is computed and returned per photo, we just render the
-aggregate today. Showing it per-tile is a UI change, not a model change.
+Key beat: fingerprints are per FACE, not per photo — a group shot carries eight of them
+and can be found by any of the eight people in it.
+
+Backup, only if a judge presses (say it once, do not volunteer it): InsightFace buffalo_l
+(ArcFace) on ONNX Runtime, 512-dim embeddings, one pgvector query with a cosine distance
+threshold of 0.6, confidence = 1 − distance, MIN() per photo, in
+backend/src/modules/search/service.ts. If they want more than that, offer a private
+walkthrough after the session rather than saying it into the room.
+
+If asked about the score: computed and returned per photo, we just render the aggregate
+today. Showing it per-tile is a UI change, not a model change.
 -->
 
 ---
@@ -430,9 +314,9 @@ Marathons are our hardest case and our best one: <span class="data accent">8,000
 photos, and every runner is wearing their primary key.
 
 <div class="mt-5 space-y-2">
-  <PipelineStage n="01" title="Tesseract, PSM 7" detail="Downscaled to 640px, treated as a single text line." />
-  <PipelineStage n="02" title="Regex \b\d{2,6}\b" detail="Extract candidate bib numbers, dedup, preserve order." />
-  <PipelineStage n="03" title="Exact match OR fuzzy" detail="OCR substitutes characters — 8 for B, 0 for O — so the query falls back to a fuzzy match rather than returning nothing." />
+  <PipelineStage n="01" title="We read the number off the bib" detail="Every photo is scanned automatically the moment it is uploaded." />
+  <PipelineStage n="02" title="Every number found is indexed" detail="The race number becomes a way to search the event, alongside the face." />
+  <PipelineStage n="03" title="Close enough still counts" detail="Reading a number off a moving runner is never perfect. A misread digit still finds the right photos, instead of telling the runner there are none." />
 </div>
 
 <p class="mt-5 text-sm muted">
@@ -443,219 +327,160 @@ Runs once at upload, per event, opt-in. The guest just types their race number.
 
 ::right::
 
-<img src="/landing/search-bib.35a9d29e.webp" class="rounded-xl border border-white/10 shadow-2xl" alt="Bib number search" />
-
-<!--
-[4:50 — 5:20] Point out that step 3 is where naive implementations fail: OCR is
-never clean, so an exact-match-only search returns an empty gallery and the
-runner assumes there are no photos of them.
--->
-
----
-layout: default
----
-
-# Why self-hosted, not an API
-
-<div class="grid grid-cols-3 gap-5 mt-10">
-
-<div class="card" v-click>
-  <div class="text-3xl accent data">₭0</div>
-  <div class="font-semibold mt-2">per inference</div>
-  <p class="text-sm muted mt-2">
-    One marathon is 8,000 photos and every one gets face detection, embedding and OCR.
-    Per-call pricing would cost more than the download revenue on a whole event.
-  </p>
-</div>
-
-<div class="card" v-click>
-  <div class="text-3xl accent"><carbon:locked /></div>
-  <div class="font-semibold mt-2">Faces never leave</div>
-  <p class="text-sm muted mt-2">
-    Guest selfies and embeddings stay on our infrastructure. We never hand
-    biometric data to a third party — which is not a claim you can make while
-    posting faces to someone else's endpoint.
-  </p>
-</div>
-
-<div class="card" v-click>
-  <div class="text-3xl accent"><carbon:earth-southeast-asia /></div>
-  <div class="font-semibold mt-2">Priced for Laos</div>
-  <p class="text-sm muted mt-2">
-    A Day Pass is <span class="data">₭135,000</span>. That price only exists
-    because our marginal cost per photo is compute we already own.
-  </p>
-</div>
-
+<div class="space-y-3">
+  <img src="/landing/search-bib.35a9d29e.webp" class="rounded-xl border border-white/10 shadow-2xl max-h-[240px] mx-auto" alt="Bib number search" />
+  <img src="/landing/crew-photographers.ac7e98be.webp" class="rounded-xl border border-white/10 h-[110px] w-full object-cover" alt="A crew of photographers at a marathon start line" />
 </div>
 
 <!--
-[5:20 — 5:50] This is the argument that separates us from a hackathon project
-that wraps an API. Say it plainly: the unit economics ARE the architecture.
--->
+[2:20 — 2:40] One point only: step 3 is where naive implementations fail. Number reading
+is never clean, so an exact-match-only search returns an empty gallery and the runner
+assumes there are no photos of them.
 
----
-layout: default
----
+Backup if pressed: Tesseract at PSM 7 on a 640px downscale, a \b\d{2,6}\b regex to pull
+candidates, then exact match with a fuzzy fallback for the classic substitutions (8 for B,
+0 for O). Keep it off the slide.
 
-# Architecture
-
-```mermaid {scale:0.75, theme:'base', themeVariables:{primaryColor:'#fff1f2', primaryBorderColor:'#e60023', primaryTextColor:'#111820',lineColor:'#737373', fontFamily:'Work Sans, sans-serif'}}
-flowchart LR
-  B[Browser] --> P[Next.js<br/>proxy] --> A
-  CAM[Camera<br/>phone] -->|SFTP<br/>QR| A
-  BANK[BCEL<br/>LDB · JDB] -->|PubNub| A
-  A[Elysia API<br/>on Bun] -->|BullMQ| W[Python worker<br/>InsightFace · Tesseract]
-  A --> DB[(Postgres<br/>pgvector)]
-  A --> S3[(Cloudflare R2)]
-  W --> DB
-  W --> S3
-  W -->|Redis<br/>pub/sub| A
-  A -->|SSE| B
-```
-
-<div class="grid grid-cols-3 gap-4 mt-6 text-xs muted">
-  <div><span class="accent font-semibold">Backend</span> — Bun + Elysia, Drizzle, Casbin RBAC, Pino</div>
-  <div><span class="accent font-semibold">Frontend</span> — Next.js 16, React 19, Tailwind v4</div>
-  <div><span class="accent font-semibold">Processor</span> — Python 3.10, InsightFace, ONNX, pgvector</div>
-</div>
-
-<!--
-[5:50 — 6:20] Trace one photo through the diagram with your finger: camera → API →
-queue → worker → back to the gallery over SSE. That is the whole system in one path.
-
-Note the browser never talks to the API directly — every call goes through the
-Next.js proxy, which holds the token and refreshes it transparently.
--->
-
----
-layout: default
----
-
-# Three things we're proud of
-
-<div class="space-y-3 mt-6 text-sm">
-
-<div class="card" v-click>
-  <div class="font-semibold">An SFTP server inside the API process</div>
-  <p class="text-xs muted mt-1 leading-relaxed">
-    Sony, Canon and Nikon bodies can upload over FTP natively. So we run an ssh2-based
-    SFTP endpoint that writes straight to object storage — the photographer configures
-    the camera once and never opens a laptop at the venue again.
-  </p>
-</div>
-
-<div class="card" v-click>
-  <div class="font-semibold">Photos appear in the gallery while the shutter is still going</div>
-  <p class="text-xs muted mt-1 leading-relaxed">
-    The Python worker publishes to a Redis channel when a photo finishes processing;
-    the API relays it to every open gallery over SSE. Guests watch the event fill up live.
-  </p>
-</div>
-
-<div class="card" v-click>
-  <div class="font-semibold">Watermarks are never pre-generated</div>
-  <p class="text-xs muted mt-1 leading-relaxed">
-    Previews are rendered on demand and cached, with the cache key derived from the
-    watermark itself — so a creator changing their watermark invalidates every stale
-    preview automatically, instead of us re-rendering thousands of images up front.
-  </p>
-</div>
-
-</div>
-
-<!--
-[6:20 — 6:55] Pick TWO of these three depending on the clock. The SFTP one always
-lands because it is the least expected.
--->
-
----
-layout: default
----
-
-# Handling faces responsibly
-
-<div class="grid grid-cols-2 gap-6 mt-8">
-
-<div class="card">
-  <div class="font-semibold accent">Selfies are deleted within 1 hour</div>
-  <p class="text-sm muted mt-2">The search photo is a query, not an asset. It is never added to the gallery and never kept.</p>
-</div>
-
-<div class="card">
-  <div class="font-semibold accent">Embeddings are not linked to identity</div>
-  <p class="text-sm muted mt-2">We store vectors against photos, not against people. There is no face-to-name index to leak.</p>
-</div>
-
-<div class="card">
-  <div class="font-semibold accent">Publishing is always explicit</div>
-  <p class="text-sm muted mt-2">Uploads are private by default. A creator releases each batch by hand, so no photo becomes searchable by accident.</p>
-</div>
-
-<div class="card">
-  <div class="font-semibold accent">Originals live in a vault</div>
-  <p class="text-sm muted mt-2">Monetized originals are encrypted at rest in a private bucket, reachable only through a signed URL valid 24 hours and 3 downloads.</p>
-</div>
-
-</div>
-
-<p class="mt-6 text-sm subtle">
-Our own landing page labels its people as illustrative, not real event guests — because on a
-face-recognition product, the demo imagery is an ethics decision too.
-</p>
-
-<!--
-[6:55 — 7:30] Do not skip this slide for time. It is a face-recognition product in
-front of judges; showing that we thought about it is worth more than another feature.
+[slack slide — if you are running long, cut to the fuzzy-fallback sentence and move on]
 -->
 
 ---
 layout: two-cols-header
 ---
 
-# Built for Laos, not translated into it
+# Why self-hosted, not an API
 
 ::left::
 
-<div class="pr-6 text-sm">
+<div class="pr-6">
 
-### Lao is the default
+<div class="font-semibold text-base mb-2">One event, two ways to pay for it</div>
 
-<p class="lao text-base accent mb-2">ຄົ້ນຫາດ້ວຍໃບໜ້າຂອງທ່ານ</p>
+<div class="card !py-3">
+  <div class="text-xs muted">A mid-size marathon · <span class="data">8,000</span> photos</div>
 
-Not a language toggle bolted on at the end — Lao is the fallback language of the
-product and English is secondary. Type, spacing and line height were chosen so Lao
-and English are equally first-class.
+| | |
+|---|---|
+| What the creator pays us <span class="subtle">shipped price</span> | <span class="data">$6.30</span> <span class="subtle">₭135,000</span> |
+| What a per-call API would bill us | <b class="data accent">$8–24</b> <span class="subtle">₭172,000+</span> |
 
-### Payment where the money already is
+  <p class="text-xs subtle !mt-1 leading-snug">
+    At <span class="data">$0.001</span> per image — commodity face-API pricing, not a quote we
+    hold. Every photo needs detection, fingerprinting and number reading, so it is billed
+    more than once.
+  </p>
+</div>
 
-Checkout hands off to <b>BCEL One</b>, <b>LDB</b>, <b>JDB</b> or Lao QR — the banking
-apps guests already have on their phone. Confirmation comes back in real time.
-
-<p class="mt-3 text-sm muted">
-We store no card or account data. The bank does the sensitive part; we listen for
-the confirmation.
+<p class="text-sm mt-4 leading-snug">
+The whole Day Pass would go to inference before we served a single download.
+<b class="accent">We own the compute</b>, so the 8,001st photo costs
+<span class="data accent">₭0</span> — and that is the only reason the pass can be $6.30.
 </p>
 
 </div>
 
 ::right::
 
-<div class="space-y-3">
-  <div class="card">
-    <div class="text-sm font-semibold">Why this matters</div>
-    <p class="text-xs muted mt-2">
-      Card penetration is low. A checkout that assumes a Visa card is a checkout that
-      converts at nearly zero here — the payment rail is not a detail, it is the product
-      working or not working.
-    </p>
-  </div>
-  <img src="/landing/cta-phone-running.0fbb21f3.webp" class="rounded-xl border border-white/10 max-h-[220px] mx-auto" alt="Event gallery on a phone" />
+<div class="space-y-4">
+
+<div class="card" v-click>
+  <div class="text-2xl accent"><carbon:locked /></div>
+  <div class="font-semibold mt-1">Faces never leave</div>
+  <p class="text-sm muted mt-2">
+    Guest selfies and embeddings stay on our infrastructure. Not a claim you can make
+    while posting faces to someone else's endpoint.
+  </p>
+</div>
+
+<div class="card" v-click>
+  <div class="text-2xl accent"><carbon:earth-southeast-asia /></div>
+  <div class="font-semibold mt-1">Priced for Laos</div>
+  <p class="text-sm muted mt-2">
+    A Day Pass is <span class="data">$6.30</span> <span class="subtle">(₭135,000)</span>
+    because our marginal cost per photo is compute we already own — not a line item
+    someone else invoices us for.
+  </p>
+</div>
+
+</div>
+
+<style scoped>
+/* The left table is inside a card; default row padding pushes it past the card edge. */
+td, th { padding: .28rem .5rem !important; line-height: 1.3; border-top: 0 !important; }
+table { margin: .5rem 0 0 !important; }
+</style>
+
+<!--
+[2:40 — 3:00] The argument that separates us from a hackathon project that wraps an API.
+Say the comparison out loud, slowly: the photographer pays us $6.30 for the whole day, and
+a per-call API would bill us more than that on one event — before a single download is sold.
+Owning the model is what makes the $6.30 pass possible, and it is also why we can say faces
+never leave our infrastructure, which is where the next slide picks up.
+
+The $0.001 per image is a public commodity rate, not a quote we hold — the slide says so.
+Do not name a vendor.
+
+If pressed on volume discounts: they exist, and they do not change the argument. The point
+is not that per-call is expensive, it is that the marginal cost is someone else's line item
+instead of ours — which is exactly what you cannot build a ₭135,000 day rate on.
+-->
+
+---
+layout: two-cols-header
+---
+
+# Responsible faces, built for Laos
+
+::left::
+
+<div class="pr-6 text-sm">
+
+### Handling faces responsibly
+
+<div class="space-y-2 mt-3">
+  <PipelineStage n="✓" title="Selfies are deleted within 1 hour" detail="The search photo is a query, not an asset. Never added to the gallery, never kept." />
+  <PipelineStage n="✓" title="Embeddings are not linked to identity" detail="Vectors are stored against photos, not people. There is no face-to-name index to leak." />
+  <PipelineStage n="✓" title="Publishing is always explicit" detail="Uploads are private by default; a creator releases each batch by hand." />
+  <PipelineStage n="✓" title="Originals live in a vault" detail="Encrypted at rest, reachable only through a signed URL valid 24 hours and 3 downloads." />
+</div>
+
+</div>
+
+::right::
+
+<div class="text-sm">
+
+### Built for Laos, not translated into it
+
+<p class="lao text-base accent mt-3 mb-2">ຄົ້ນຫາດ້ວຍໃບໜ້າຂອງທ່ານ</p>
+
+Lao is the product's fallback language and English is secondary — not a toggle bolted on
+at the end.
+
+<div class="card mt-4">
+  <div class="text-sm font-semibold">Payment where the money already is</div>
+  <p class="text-xs muted mt-2">
+    Checkout hands off to <b>BCEL One</b>, <b>LDB</b>, <b>JDB</b> or Lao QR — the banking apps
+    guests already have. Confirmation comes back in real time, and we store no card or
+    account data.
+  </p>
+  <p class="text-xs muted mt-2">
+    Card penetration is low here. A checkout that assumes a Visa card converts at nearly
+    zero — the payment rail is not a detail, it is the product working or not working.
+  </p>
+</div>
+
 </div>
 
 <!--
-[7:30 — 8:00] The localisation point is a differentiator against any imported
-competitor. Google Photos does not take BCEL One.
+[3:00 — 3:25] Do not skip this slide for time. It is a face-recognition product in front
+of judges; showing that we thought about it is worth more than another feature.
+
+Left column: say two of the four, not all four. Right column is the differentiator against
+any imported competitor — Google Photos does not take BCEL One.
+
+If asked about the demo imagery: our own landing page labels its people as illustrative,
+not real event guests. On a face-recognition product that is an ethics decision too.
 -->
 
 ---
@@ -666,144 +491,316 @@ layout: two-cols-header
 
 ::left::
 
-<div class="pr-6">
+<div class="pr-6 text-xs">
 
-### Creators subscribe for storage
+<div class="font-semibold text-base mb-1">Creators subscribe for storage</div>
 
 | Plan | Price | Storage |
 |---|---|---|
-| Free trial | <span class="data">₭0</span> / 3 mo | 5 GB |
-| Day Pass | <span class="data">₭135,000</span> / day | 5 GB |
-| Week Pass | <span class="data">₭220,000</span> / wk | 10 GB |
-| Starter | <span class="data">₭300,000</span> / mo | 12 GB |
-| Plus | <span class="data">₭590,000</span> / mo | 32 GB |
-| Pro | <span class="data">₭800,000</span> / mo | 64 GB |
+| Free trial | <span class="data">$0</span> / 3 mo | 1 GB |
+| Day Pass | <span class="data">$6.30</span> <span class="subtle">₭135,000</span> / day | 5 GB |
+| Week Pass | <span class="data">$10.20</span> <span class="subtle">₭220,000</span> / wk | 10 GB |
+| Pro | <span class="data">$37</span> <span class="subtle">₭800,000</span> / mo | 64 GB |
 
-<p class="text-xs subtle mt-2">Day and Week passes exist because most photographers work per event, not per month.</p>
+<p class="text-xs subtle !mt-1">Six plans in all. Day and Week passes exist because most photographers work per event, not per month. USD at ₭21,500 = $1; the app charges in kip.</p>
+
+<div class="font-semibold text-base mt-4">And the platform takes a cut of downloads</div>
+
+<div class="card !py-2 mt-2">
+  <div class="text-xs font-semibold">Solo <span class="muted font-normal">·</span> Fleet</div>
+  <div class="text-sm mt-1 data">
+    <span class="accent">30%</span> / <span class="accent">70%</span>
+    <span class="muted mx-2">·</span>
+    <span style="color:#ff6b78">30%</span> ·
+    <span style="color:#e60023">20%</span> ·
+    <span style="color:#8a0015">50%</span>
+  </div>
+  <p class="text-xs muted !mt-1 leading-snug">
+    Every sale is attributed to whoever took that photo — so ten photographers on one
+    marathon each get paid for their own frames.
+  </p>
+</div>
 
 </div>
 
 ::right::
 
-### And the platform takes a cut of downloads
+<div class="text-xs">
 
-<div class="card mt-4">
-  <div class="text-sm font-semibold">Solo photographer</div>
-  <div class="text-lg mt-2"><span class="accent data">30%</span> platform · <span class="accent data">70%</span> photographer</div>
-</div>
+<div class="font-semibold text-base mb-1">One event, in USD</div>
 
-<div class="card mt-3">
-  <div class="text-sm font-semibold">Organizer with a photographer fleet</div>
-  <div class="text-lg mt-2 data">
-    <span style="color:#ff6b78">30%</span> ·
-    <span style="color:#e60023">20%</span> ·
-    <span style="color:#8a0015">50%</span>
+<div class="card !py-2">
+  <div class="text-xs font-semibold">A mid-size marathon</div>
+
+| | |
+|---|---|
+| Finishers <span class="subtle">assumed</span> | <span class="data">600</span> |
+| Who buy a photo <span class="subtle">assumed</span> | <span class="data">15%</span> → <span class="data">90</span> |
+| 3-photo bundle <span class="subtle">shipped default</span> | <span class="data">$4.65</span> <span class="subtle">₭100,000</span> |
+| **Gross** | <b class="data accent">$419</b> <span class="subtle">₭9,000,000</span> |
+
+  <div class="text-sm !mt-2 data">
+    <span style="color:#ff6b78">$126</span> ·
+    <span style="color:#e60023">$84</span> ·
+    <span style="color:#8a0015">$209</span>
   </div>
-  <p class="text-xs muted mt-2">
-    Platform, organizer, photographers. Configurable per event, and every sale is
-    attributed to whoever actually took that photo — so ten photographers on one
-    marathon each get paid for their own frames.
-  </p>
+  <p class="text-xs muted !mt-1">Platform, organizer, photographers — the product's shipped defaults.</p>
 </div>
+
+<p class="text-xs subtle mt-3 leading-snug">
+Prices and split are real. <b>The conversion rate is a guess, and we are calling it one</b> —
+it is the number we are launching to learn. The photographer paid a
+<span class="data">$6.30</span> Day Pass to run this event.
+</p>
+
+</div>
+
+<style scoped>
+/* Both columns are table-heavy; the default row padding overflows the slide. */
+td, th { padding: .28rem .5rem !important; line-height: 1.3; }
+</style>
 
 <!--
-[8:00 — 8:35] Two revenue lines, and the second one is the interesting one:
-per-photo attribution is what makes a fleet event possible at all.
+[3:25 — 3:55] Two revenue lines. Say the assumption BEFORE the number, not after:
+"assume 15% of finishers buy — that's the number we're launching to find out."
+Volunteering it is what makes the rest credible.
 
-If asked: splits are adjustable but never retroactive — sales already made keep
-the split that was in force.
--->
+The interesting half is per-photo attribution — it is what makes a fleet event possible at all.
 
----
-layout: default
----
+If asked about sensitivity: at 5% buying the platform takes $42 (₭900,000) from this event;
+at 25%, $209 (₭4,500,000).
 
-# What's actually built
+If asked what risk is left: the technical risk is gone — the product is live and people are using it.
+What nobody has shown is that a guest in Laos will pay for a photo they might screenshot
+out of a group chat. Watermarked previews and seconds-fast face search are what make them decide.
 
-<div class="grid grid-cols-4 gap-4 mt-10">
-  <div class="card text-center">
-    <div class="text-3xl data accent">668</div>
-    <div class="text-xs muted mt-1">commits since Feb 2026</div>
-  </div>
-  <div class="card text-center">
-    <div class="text-3xl data accent">66k</div>
-    <div class="text-xs muted mt-1">lines of TypeScript &amp; Python</div>
-  </div>
-  <div class="card text-center">
-    <div class="text-3xl data accent">34</div>
-    <div class="text-xs muted mt-1">backend test files</div>
-  </div>
-  <div class="card text-center">
-    <div class="text-3xl data accent">3</div>
-    <div class="text-xs muted mt-1">deployed environments</div>
-  </div>
-</div>
+If asked about national scale: that is the next slide — $126 here plus the Day Pass is
+$132 to the platform per event, and the business scales on event volume and organizer
+fleet contracts. Give the brackets there, and label them as brackets.
 
-<div class="grid grid-cols-2 gap-6 mt-8 text-sm">
+If asked whether anyone pays for event photos: Sportograf does this at marathon scale in
+Europe. Nobody has proven it in Laos — that's the honest answer.
 
-<div v-click>
-
-### Not a prototype
-
-Three services, one monorepo, built by a team of three. Tests run against a real
-Postgres and the real application — not mocks — covering auth, payments, checkout,
-cart, search, KYC and admin.
-
-</div>
-
-<div v-click>
-
-### Shipped on rails
-
-Six CI pipelines, filtered per package, building containers and deploying to
-dev, UAT and production on self-hosted runners.
-
-</div>
-
-</div>
-
-<!--
-[8:35 — 9:00] Be precise here: these are engineering facts, not traction claims.
-We are not going to invent user numbers. If a judge asks about users, answer
-honestly about where we are in launch.
+Splits are adjustable but never retroactive. Per-photo prices are configurable;
+₭40,000 / ₭100,000 / ₭160,000 ($1.85 / $4.65 / $7.45) for 1, 3 and 5 photos are the
+shipped defaults. All USD on the slides is converted at ₭21,500 = $1 — the app bills in kip.
 -->
 
 ---
 layout: two-cols-header
 ---
 
-# Shipped, and next
+# How big this gets
 
 ::left::
 
-<div class="pr-6">
+<div class="pr-6 text-xs">
 
-### Working today
+<div class="font-semibold text-base mb-1">The unit is real</div>
 
-<div class="space-y-2">
-  <PipelineStage n="✓" title="Face search" detail="InsightFace embeddings, pgvector cosine match, confidence ranking." />
-  <PipelineStage n="✓" title="Bib OCR search" detail="Tesseract extraction with fuzzy fallback." />
-  <PipelineStage n="✓" title="Camera ingest" detail="SFTP plus QR-paired mobile upload." />
-  <PipelineStage n="✓" title="Real-time gallery" detail="Redis pub/sub to SSE." />
-  <PipelineStage n="✓" title="Payments &amp; payouts" detail="Bank-app checkout, per-photo revenue attribution." />
+<div class="card !py-2">
+  <div class="text-xs font-semibold">One mid-size event, to EventPix</div>
+
+| | |
+|---|---|
+| Cut of downloads <span class="subtle">shipped split</span> | <span class="data">$126</span> |
+| Creator's Day Pass <span class="subtle">shipped price</span> | <span class="data">$6.30</span> <span class="subtle">₭135,000</span> |
+| **Per event** | <b class="data accent">$132</b> |
+
 </div>
+
+<div class="card-soft card !py-2 mt-3">
+  <div class="text-xs font-semibold">Week one, observed</div>
+  <p class="text-xs muted !mt-1 leading-snug">
+    <span class="data">19</span> events · about <span class="data">1,080</span> photos each —
+    the events already running on EventPix are the size we just modelled.
+  </p>
+</div>
+
+<p class="text-xs subtle !mt-3 leading-snug">
+So the question is not what an event is worth. It is <b>how many events</b>.
+</p>
 
 </div>
 
 ::right::
 
-### Next
+<div class="text-xs">
 
-<div class="space-y-2">
-  <PipelineStage n="→" :shipped="false" title="NSFW classifier" detail="The pipeline stage, thresholds and account-suspension logic are already wired — the model itself is the piece we are dropping in." />
-  <PipelineStage n="→" :shipped="false" title="Native pgvector column + ANN index" detail="Embeddings are stored as JSONB and cast at query time today. Moving to a real vector column with an approximate index is how we hold our sub-2-second target at 10,000 photos." />
-  <PipelineStage n="→" :shipped="false" title="Near-duplicate review" detail="Perceptual hashes are computed; the creator-facing review UI is not built yet." />
+<div class="font-semibold text-base mb-3">What that becomes, at volume</div>
+
+<div class="space-y-7">
+  <div v-click><ScaleBar label="100 events" note="a year" value="$13.2K" :pct="5" :tone="0" /></div>
+  <div v-click><ScaleBar label="500 events" note="a year" value="$66.2K" :pct="25" :tone="1" /></div>
+  <div v-click><ScaleBar label="2,000 events" note="a year" value="$264.6K" :pct="100" :tone="2" /></div>
+</div>
+
+<p class="text-xs subtle mt-9 leading-snug">
+<b>The volumes are assumptions, and we are calling them that.</b> Nobody has counted how many
+events run in Laos in a year — so these are brackets to think in, not a forecast, and they are
+not projected from our first week. Measuring the real number is what the next quarter is for.
+</p>
+
+</div>
+
+<style scoped>
+/* The left table sits inside a card; default row padding pushes it past the card edge. */
+td, th { padding: .28rem .5rem !important; line-height: 1.3; border-top: 0 !important; }
+table { margin: .4rem 0 0 !important; }
+</style>
+
+<!--
+[3:55 — 4:15] The scale slide. Say "assume" BEFORE each number, same discipline as the
+previous slide — that is what keeps this credible instead of hand-wavy.
+
+Lead with the unit: "the previous slide gave us a hundred and thirty-two dollars to the
+platform per event — a hundred and twenty-six from downloads, plus the day pass the
+photographer bought to run it."
+
+Then: "so the whole business is one multiplication, and the multiplier is event volume."
+Click the three bars. Hundred events a year is thirteen thousand dollars; five hundred is
+sixty-six; two thousand is two hundred and sixty-five.
+
+Do NOT present the tiers as a forecast — they are brackets. Do NOT derive them from the
+traction slide; nineteen events in one week is NOT nine hundred a year and you must not
+say that, even if a judge does the arithmetic out loud.
+
+Exact figures if pressed: $13,230 / $66,150 / $264,600 at $132.30 per event.
+
+If asked where 2,000 comes from: it is an upper bracket, not a claim. Say plainly that
+the honest answer is we do not know yet, and that a fleet contract with one organizer
+covers many events at once — which is why organizer deals, not photographer signups,
+are the thing to watch.
+-->
+
+---
+layout: default
+---
+
+# What's built, and what's next
+
+<div class="grid grid-cols-2 gap-8 mt-6 text-sm">
+
+<div>
+
+<div v-click class="font-semibold text-base">Working today</div>
+
+<div v-click class="space-y-2 mt-2">
+  <PipelineStage title="Face search" detail="Our own recognition models, results ranked by confidence.">
+    <template #icon><carbon:face-activated /></template>
+  </PipelineStage>
+  <PipelineStage title="Bib number search" detail="Numbers read automatically at upload, with a close-match fallback.">
+    <template #icon><carbon:barcode /></template>
+  </PipelineStage>
+  <PipelineStage title="Camera ingest, live gallery" detail="Cameras upload straight into the event; guests see photos appear live.">
+    <template #icon><carbon:camera /></template>
+  </PipelineStage>
+  <PipelineStage title="Payments &amp; payouts" detail="Bank-app checkout, per-photo revenue attribution.">
+    <template #icon><carbon:wallet /></template>
+  </PipelineStage>
+</div>
+
+<div v-click class="grid grid-cols-3 gap-2 mt-3">
+  <img src="/landing/camera-back-lcd.2396f42a.webp" class="rounded-lg h-[56px] w-full object-cover ring-1 ring-black/10" alt="A camera back, uploading straight into the event" />
+  <img src="/landing/live-gallery-monitor.65743da0.webp" class="rounded-lg h-[56px] w-full object-cover ring-1 ring-black/10" alt="The live gallery on a monitor at the venue" />
+  <img src="/landing/monetized-card.c02cb81e.webp" class="rounded-lg h-[56px] w-full object-cover ring-1 ring-black/10" alt="A monetized event card" />
+</div>
+
+</div>
+
+<div>
+
+<div v-click class="font-semibold text-base">Next</div>
+
+<div v-click class="space-y-2 mt-2">
+  <PipelineStage :shipped="false" title="Safety screening for uploads" detail="The checks, thresholds and account-suspension logic are wired — the model is the piece we are dropping in.">
+    <template #icon><carbon:security /></template>
+  </PipelineStage>
+  <PipelineStage :shipped="false" title="Search speed at scale" detail="Re-engineering how fingerprints are stored, so search stays under our two-second target at 10,000 photos in one event.">
+    <template #icon><carbon:flash /></template>
+  </PipelineStage>
+  <PipelineStage :shipped="false" title="Near-duplicate review" detail="Duplicate detection already runs on every upload; the creator-facing review screen is not built yet.">
+    <template #icon><carbon:image-copy /></template>
+  </PipelineStage>
+</div>
+
+</div>
+
 </div>
 
 <!--
-[9:00 — 9:30] Being explicit about what is not finished buys credibility for
-everything on the left column. Say the pgvector one out loud — it shows we know
-where our own bottleneck is.
+[4:15 — 4:35] Walk the left column first, then the right. Do not pre-empt the traction
+on the next slide.
+
+Being explicit about what is NOT finished buys credibility for the left column. Say the
+search-speed one out loud — it shows we know where our own bottleneck is, without saying
+what the fix is.
+
+Five clicks: shipped heading, the four shipped cards, the photo strip, then the Next
+heading and its three cards.
+-->
+
+---
+layout: default
+---
+
+# One week of soft opening
+
+<div class="grid grid-cols-3 gap-3 mt-4">
+  <div class="card text-center !py-3">
+    <div class="text-3xl data accent">20,589</div>
+    <div class="text-xs muted mt-1">photos uploaded</div>
+  </div>
+  <div class="card text-center !py-3">
+    <div class="text-3xl data accent">5,620</div>
+    <div class="text-xs muted mt-1">unique visitors</div>
+  </div>
+  <div class="card text-center !py-3">
+    <div class="text-3xl data accent">1,673,310</div>
+    <div class="text-xs muted mt-1">requests served</div>
+  </div>
+</div>
+
+<div class="grid grid-cols-3 gap-3 mt-3">
+  <div class="card text-center !py-2">
+    <div class="text-2xl data">26</div>
+    <div class="text-xs muted">creators signed up <span class="subtle">· 20 on a paid-tier subscription</span></div>
+  </div>
+  <div class="card text-center !py-2">
+    <div class="text-2xl data">19</div>
+    <div class="text-xs muted">events created</div>
+  </div>
+  <div class="card text-center !py-2">
+    <div class="text-2xl data">525</div>
+    <div class="text-xs muted">peak unique visitors in one hour</div>
+  </div>
+</div>
+
+<p class="text-xs subtle mt-5 leading-snug">
+Seven days, no paid marketing, no press — photographers we reached directly. Small numbers,
+but they are <b>ours</b>, and the platform carried the load: twenty thousand photos indexed for
+face and bib search, and a five-hundred-guest hour that nobody had to babysit.
+</p>
+
+<!--
+[4:35 — 4:55] This is the slide that answers "is anyone using it", so do not rush it.
+
+Lead with the load, not the vanity number: "one week of soft opening, twenty thousand
+photos through the pipeline, five hundred guests in our busiest hour."
+
+Then be honest about the size: twenty-six creators is small and you should say so before
+a judge does. The point is not scale, it is that the loop closed — a photographer signed
+up, paid, uploaded, and guests came and searched.
+
+Do NOT extrapolate. No annual figures, no "if this continues". If asked about revenue
+from these events, say what is true: we are measuring conversion now and it is too early
+to quote a rate.
+
+If asked what a subscription is: twenty of the twenty-six are on a paid tier — mostly Day
+and Week passes, because they bought them for a specific event.
+
+The 1.67M requests figure is infrastructure, not people — use it only if a judge probes
+whether the system holds up.
 -->
 
 ---
@@ -811,14 +808,16 @@ layout: center
 class: text-center
 ---
 
-<BrandLogo :size="56" class="mb-6" />
+<img src="/landing/cta-celebration.746fa47d.webp" class="rounded-2xl h-[230px] w-auto mx-auto object-cover mb-8" alt="" />
 
-<p class="text-2xl mt-3 muted">Capture every moment. <span class="accent">Find every memory.</span></p>
+<BrandLogo :size="52" />
 
-<p class="mt-10 subtle text-sm data">eventpix.ai</p>
+<p class="text-2xl mt-4 muted">Capture every moment. <span class="accent">Find every memory.</span></p>
+
+<p class="mt-6 subtle text-sm data">eventpix.ai</p>
 
 <!--
-[9:30 — 10:00] Close on the promise, not on a feature list.
+[4:55 — 5:15] Close on the promise, not on a feature list.
 
 "Somewhere there is a photo of you that you have never seen. We are building the
 thing that hands it to you." Then take questions.

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
+    "build:pages": "slidev build --base /eventpix-ai-festa/ && node scripts/fix-base.mjs",
     "dev": "slidev --open",
     "export": "slidev export"
   },

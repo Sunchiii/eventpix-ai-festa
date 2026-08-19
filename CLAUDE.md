@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project
 
 A [Slidev](https://sli.dev/) deck: the **EventPix** pitch for the AI Youth Festa competition
-(~8 minutes, 19 slides, English). It presents the product built at
+(~10 minutes, 20 slides, English). It presents the product built at
 `/Users/lasun/projects/eventpix` — an AI-powered event-photo discovery and monetization
 platform for the Laos market.
 
@@ -30,6 +30,8 @@ No test or lint setup exists.
   - `BrandLogo.vue` — the real aperture-"P" mark (CSS-masked) plus the "EventPix" wordmark.
   - `PipelineStage.vue` — numbered stage card; `:shipped="false"` renders the muted "not yet built" variant.
   - `DemoVideo.vue` — plays/pauses with `onSlideEnter`/`onSlideLeave`.
+  - `ScaleBar.vue` — labelled horizontal bar for the scale slide; `pct` is the fill width and
+    `tone` (0-2) indexes the same three-tone red ramp the revenue split uses.
 - `style.css` — auto-loaded global styles: self-hosted `@fontsource` imports, the `--ep-*` brand
   tokens (with an `.ep-dark` override for dark slides), and the `.card` / `.chip` / `.match-chip`
   / `.data` / `.accent` / `.muted` / `.subtle` / `.lao` helpers the slides use.
@@ -87,7 +89,38 @@ Every figure in the deck traces to the EventPix repo. Do not add claims the sour
 - NSFW classification is a stub (`processor/app/services/nsfw_service.py` returns 0.0) and
   belongs only on the roadmap slide.
 - The ≤2s-over-10K-photos figure is a spec target, not a benchmark — roadmap slide only.
-- There are no user, event, or revenue numbers anywhere in the source. Don't invent any.
+- **Traction is user-supplied, not repo-derived.** Slide 12 ("One week of soft opening") carries
+  the only usage numbers in the deck — 26 creators / 20 on paid tiers, 19 events, 20,589 photos,
+  5.62k unique visitors, 525 peak visitors/hour, 1,673,310 requests — reported by the team from
+  one week of soft opening (as of 2026-08-19). They are not in the repo and cannot be verified
+  from it. Do not change, round up, extrapolate, annualize, or derive revenue from them, and do
+  not add any other usage number without the user supplying it the same way.
+
+**The two modelled slides.** "One event, in USD" walks a single marathon through the revenue
+split. Its hard numbers are the shipped defaults a creator sees when they create a monetized
+event — `frontend/app/(creator)/creator/events/new/page.tsx:45-48`: a 30/20/50 platform /
+organizer / photographer split and `₭40,000 / ₭100,000 / ₭160,000` for 1, 3 and 5 photos. The
+finisher count and the conversion rate are assumptions, are labelled as such on the slide, and
+**must stay labelled**. This is a narrow, deliberate exception so the 30% take-rate has something
+to be 30% *of* — it is not a precedent for adding traction numbers anywhere else.
+
+"How big this gets" is the second, and it is downstream of the first: `$126` (the platform's
+30% of that modelled event) plus the shipped `$6.30 / ₭135,000` Day Pass = **$132.30 per event**,
+multiplied out at 100 / 500 / 2,000 events a year (`$13,230 / $66,150 / $264,600`). **The event
+volumes are illustrative brackets, not a forecast, and the slide and the presenter note both say
+so — keep that.** Two hard rules: they must NOT be derived from the week-one traction (annualizing
+"19 events in one week" is forbidden, on the slide, in the notes and in `SCRIPT.md`), and the
+aggregate USD figures carry no kip equivalent because they are not amounts the app ever bills.
+The one figure derived from supplied traction is `20,589 / 19 ≈ 1,080` photos per event, labelled
+"week one, observed" — an average, not revenue and not a projection. The deck used to refuse
+annual figures outright; that refusal is gone from `slides.md` and `SCRIPT.md` on purpose, and
+what replaced it is "here are the brackets, and here is why they are brackets".
+
+**Currency.** The app bills in kip, but the deck presents to an ASEAN audience, so USD is the
+primary figure on every slide and the kip original sits beside it in `.subtle` type. The rate is
+**₭21,500 = $1**, stated on the pricing slide. If a kip figure changes, reconvert at that rate —
+do not let the two drift apart, and do not drop the kip original (it is what ties the numbers to
+the shipped app).
 
 The per-event gallery themes on slide 6 are real: five presets in `frontend/lib/event-themes.ts`
 (marathon ships **blue** `#1D6FE8`, which is why the demo video and screenshots are blue).
@@ -96,3 +129,13 @@ The per-event gallery themes on slide 6 are real: five presets in `frontend/lib/
 
 Configured for both Netlify (`netlify.toml`, Node 24) and Vercel (`vercel.json`); both run
 `npm run build`, publish `dist/`, and rewrite all routes to `/index.html` for SPA routing.
+
+**GitHub Pages** is the third target: `.github/workflows/deploy.yml` builds on every push to
+`main` and publishes to https://sunchiii.github.io/eventpix-ai-festa/. Because a project page
+serves from a subpath, it runs `pnpm build:pages` (`slidev build --base /eventpix-ai-festa/`)
+rather than `pnpm build` — Netlify and Vercel keep using the base-`/` `build` script. Vite only
+rewrites its own emitted URLs and the ones in `index.html`, so `scripts/fix-base.mjs` prefixes the
+root-absolute `public/` references that survive into the bundles (`/landing/*` in the slide chunks,
+`url(/eventpix-logo.svg)` in the CSS). Keep new public-asset paths in that script's `targets` list.
+No SPA rewrite rule is needed: Slidev emits `dist/404.html` and Pages serves it for unknown routes.
+`dist/` is no longer tracked in git.

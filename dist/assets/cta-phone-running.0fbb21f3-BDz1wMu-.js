@@ -1,1 +1,0 @@
-var e=`/landing/cta-phone-running.0fbb21f3.webp`;export{e as t};

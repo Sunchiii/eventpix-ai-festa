@@ -124,3 +124,43 @@
 
 /* Mermaid renders at its natural width; centre it in the canvas. */
 .slidev-layout .mermaid { display: flex; justify-content: center; }
+
+/* A small aperture-"P" mark in the corner of content slides. Same CSS-mask trick as
+   components/BrandLogo.vue, so it inherits the brand colour rather than the file's black
+   fill. The class is prefixed `ep-` because bare utility-shaped names collide with UnoCSS.
+   Cover and centre layouts are excluded — they already carry the full lockup. */
+.slidev-layout.default::after,
+.slidev-layout.two-cols-header::after {
+  content: '';
+  position: absolute;
+  left: 2.2rem;
+  bottom: 1.5rem;
+  width: 18px;
+  height: 18px;
+  background-color: var(--ep-primary);
+  opacity: .32;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: url(/eventpix-logo.svg);
+  mask-image: url(/eventpix-logo.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* Click reveals: a short fade-up instead of Slidev's default opacity-only switch, so every
+   v-click in the deck (slides 2, 7, 8, 9, 11) lands with the same feel. */
+.slidev-vclick-target {
+  transition: opacity .32s ease, transform .32s ease;
+}
+.slidev-vclick-hidden {
+  transform: translateY(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slidev-vclick-target { transition: none; }
+  .slidev-vclick-hidden { transform: none; }
+}
