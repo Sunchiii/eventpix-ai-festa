@@ -23,15 +23,29 @@ drawings:
 layout: cover
 ---
 
-<div class="mosaic">
-  <img src="/landing/mosaic-03.deb608c0.webp" alt="" />
-  <img src="/landing/mosaic-07.a67f4f68.webp" alt="" />
-  <img src="/landing/mosaic-11.0756cfa3.webp" alt="" />
-  <img src="/landing/mosaic-15.2ce0e386.webp" alt="" />
-  <img src="/landing/mosaic-02.696fdf3f.webp" alt="" />
-  <img src="/landing/mosaic-09.996a1151.webp" alt="" />
-  <img src="/landing/mosaic-13.ccd6dbc7.webp" alt="" />
-  <img src="/landing/mosaic-05.ccf372cc.webp" alt="" />
+<div class="ep-mosaic">
+  <div class="ep-tile"><img src="/landing/mosaic-03.deb608c0.webp" alt="" /></div>
+  <div class="ep-tile"><img src="/landing/mosaic-07.a67f4f68.webp" alt="" /></div>
+  <div class="ep-tile">
+    <img src="/landing/mosaic-11.0756cfa3.webp" alt="" />
+    <FaceBox :conf="97" show-score top="33%" left="35%" width="25%" height="21%" />
+  </div>
+  <div class="ep-tile">
+    <img src="/landing/mosaic-15.2ce0e386.webp" alt="" />
+    <FaceBox top="13%" left="37%" width="22%" height="18%" />
+  </div>
+  <div class="ep-tile"><img src="/landing/mosaic-02.696fdf3f.webp" alt="" /></div>
+  <div class="ep-tile"><img src="/landing/mosaic-09.996a1151.webp" alt="" /></div>
+  <div class="ep-tile">
+    <img src="/landing/mosaic-13.ccd6dbc7.webp" alt="" />
+    <FaceBox :conf="94" show-score top="15%" left="41%" width="17%" height="14%" />
+  </div>
+  <div class="ep-tile">
+    <img src="/landing/mosaic-05.ccf372cc.webp" alt="" />
+    <FaceBox top="9%" left="18%" width="24%" height="20%" />
+    <FaceBox :conf="91" show-score top="8%" left="52%" width="24%" height="22%" />
+  </div>
+  <div class="ep-scan" />
 </div>
 <div class="scrim" />
 
@@ -52,17 +66,48 @@ layout: cover
 </div>
 
 <style scoped>
-.mosaic {
+/* Class names are ep-prefixed on purpose: bare .mosaic / .tile / .scan collide
+   with UnoCSS utilities (see CLAUDE.md — .ring once drew a box round every ring). */
+.ep-mosaic {
   position: absolute; inset: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 2px;
 }
-.mosaic img { width: 100%; height: 100%; object-fit: cover; }
+.ep-tile { position: relative; }
+.ep-tile img { width: 100%; height: 100%; object-fit: cover; }
+
+/* One slow detector pass over the whole mosaic. Sits above the photos, below the
+   scrim, so it never crosses the logo at full strength. */
+.ep-scan {
+  position: absolute; left: 0; right: 0; top: 0;
+  height: 26%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background:
+    linear-gradient(to bottom,
+      transparent 0%,
+      color-mix(in srgb, var(--ep-primary) 10%, transparent) 82%,
+      color-mix(in srgb, var(--ep-primary) 55%, transparent) 99%,
+      transparent 100%);
+  border-bottom: 2px solid color-mix(in srgb, var(--ep-primary) 70%, transparent);
+  opacity: .5;
+  animation: ep-sweep 5s cubic-bezier(.4, 0, .6, 1) infinite;
+}
+@keyframes ep-sweep {
+  0%, 18%   { transform: translateY(-26%); opacity: 0; }
+  26%       { opacity: .5; }
+  90%       { opacity: .5; }
+  100%      { transform: translateY(100%); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ep-scan { animation: none; opacity: 0; }
+}
+
 .scrim {
   position: absolute; inset: 0;
-  background: linear-gradient(100deg, #0a0a0a 34%, rgba(10,10,10,.88) 62%, rgba(10,10,10,.55) 100%);
+  background: linear-gradient(100deg, #0a0a0a 34%, rgba(10,10,10,.88) 62%, rgba(10,10,10,.42) 100%);
 }
 </style>
 
@@ -77,36 +122,49 @@ photo they're in. The photographer gets paid. Built for Laos, and we built all o
 layout: default
 ---
 
-# The week after every event
+# One guest, three steps
 
-<div class="mt-8 space-y-5">
+<div class="grid grid-cols-3 gap-5 mt-8">
 
-<div v-click class="grid grid-cols-[auto_1fr] gap-4 items-baseline">
-  <div class="data accent text-2xl">1</div>
-  <p class="text-lg">You just ran a marathon. Somewhere in the <span class="data accent">8,000</span> photos shot that morning there are five of you — and you would pay for them.</p>
+<div v-click class="card rounded-xl overflow-hidden">
+  <img src="/landing/crew-photographers.ac7e98be.webp" class="h-[150px] w-full object-cover" alt="A crew of event photographers at the start line" />
+  <div class="p-4">
+    <p class="text-xl leading-tight"><span class="data accent">8,000</span> photos by 8am</p>
+    <p class="text-sm muted mt-1">Five of them are you.</p>
+  </div>
 </div>
 
-<div v-click class="grid grid-cols-[auto_1fr] gap-4 items-baseline">
-  <div class="data accent text-2xl">2</div>
-  <p class="text-lg">The album link arrives three days late with thousands of photos in it. You scroll for ten minutes and give up.</p>
+<div v-click class="card rounded-xl overflow-hidden">
+  <div class="relative">
+    <img src="/landing/search-face.4cc6a85e.webp" class="h-[150px] w-full object-cover object-top" alt="A runner's face at the finish line" />
+    <FaceBox top="8%" left="15%" width="26%" height="64%" />
+  </div>
+  <div class="p-4">
+    <p class="text-xl leading-tight">How do you find yours?</p>
+    <p class="text-sm muted mt-1">Scan your face — no app, no account.</p>
+  </div>
 </div>
 
-<div v-click class="grid grid-cols-[auto_1fr] gap-4 items-baseline">
-  <div class="data accent text-2xl">3</div>
-  <p class="text-lg">You find one anyway — and checkout asks for a card most people here don't have. So you message the photographer: <span class="italic muted">"can you send me the ones I'm in?"</span></p>
+<div v-click class="card rounded-xl overflow-hidden">
+  <img src="/landing/route-qr.c084b3d7.webp" class="h-[150px] w-full object-cover" alt="A phone showing a QR code" />
+  <div class="p-4">
+    <p class="text-xl leading-tight">Scan, pay, get them</p>
+    <p class="text-sm muted mt-1">Lao QR and online payment.</p>
+  </div>
 </div>
 
 </div>
 
 <div v-click class="mt-8 text-xl">
-The photo exists. The person in it never sees it. <span class="accent">Nobody gets paid.</span>
+Three steps. <span class="accent">No app, no card.</span>
 </div>
 
 <!--
-[0:20 — 0:50] The emotional setup as one person's story. Three clicks, one line each:
-I want the photos → I can't find them → I can't pay for them.
+[0:20 — 0:50] One guest's journey, one click per panel — the scale, the question, the
+answer. The slide only carries the headline; the story is spoken.
 
-Beat 3 sets up the bank-app payment argument later. Land the last line, pause, move on.
+Say the problem once before the first click, then don't come back to it. Panel 3 plants
+the bank-app argument for later. Land the closing line, pause, move on.
 -->
 
 ---
@@ -345,77 +403,103 @@ candidates, then exact match with a fuzzy fallback for the classic substitutions
 -->
 
 ---
-layout: two-cols-header
+layout: default
 ---
 
-# Why self-hosted, not an API
+# Why EventPix is different
 
-::left::
+<p class="muted -mt-2 text-sm">We run the AI ourselves, not through an API — three consequences, and one risk we never carry.</p>
 
-<div class="pr-6">
-
-<div class="font-semibold text-base mb-2">One event, two ways to pay for it</div>
+<div class="grid grid-cols-2 gap-3 mt-4">
 
 <div class="card !py-3">
-  <div class="text-xs muted">A mid-size marathon · <span class="data">8,000</span> photos</div>
-
-| | |
-|---|---|
-| What the creator pays us <span class="subtle">shipped price</span> | <span class="data">$6.30</span> <span class="subtle">₭135,000</span> |
-| What a per-call API would bill us | <b class="data accent">$8–24</b> <span class="subtle">₭172,000+</span> |
-
-  <p class="text-xs subtle !mt-1 leading-snug">
-    At <span class="data">$0.001</span> per image — commodity face-API pricing, not a quote we
-    hold. Every photo needs detection, fingerprinting and number reading, so it is billed
-    more than once.
+  <div class="flex items-center gap-2 accent">
+    <div class="text-xl leading-none"><carbon:locked /></div>
+    <div class="data text-xs">01</div>
+  </div>
+  <div class="font-semibold mt-1">No third party</div>
+  <div class="text-xs accent">Our models, running on machines we operate</div>
+  <p class="text-xs muted mt-2 leading-snug">
+    Detection, face embeddings and bib reading all run on our own infrastructure. Nothing
+    biometric is posted to someone else's endpoint — a promise you cannot make while renting
+    inference.
   </p>
 </div>
 
-<p class="text-sm mt-4 leading-snug">
-The whole Day Pass would go to inference before we served a single download.
-<b class="accent">We own the compute</b>, so the 8,001st photo costs
-<span class="data accent">₭0</span> — and that is the only reason the pass can be $6.30.
-</p>
-
-</div>
-
-::right::
-
-<div class="space-y-4">
-
-<div class="card" v-click>
-  <div class="text-2xl accent"><carbon:locked /></div>
-  <div class="font-semibold mt-1">Faces never leave</div>
-  <p class="text-sm muted mt-2">
-    Guest selfies and embeddings stay on our infrastructure. Not a claim you can make
-    while posting faces to someone else's endpoint.
+<div class="card !py-3" v-click>
+  <div class="flex items-center gap-2 accent">
+    <div class="text-xl leading-none"><carbon:chip /></div>
+    <div class="data text-xs">02</div>
+  </div>
+  <div class="font-semibold mt-1">Optimized for lower infrastructure cost</div>
+  <div class="text-xs accent">One pass per photo, at upload</div>
+  <p class="text-xs muted mt-2 leading-snug">
+    Each photo is processed once as it lands — not again on every search. Compute is a fixed
+    box we already own, so the 8,001st photo of an event costs
+    <span class="data accent">₭0</span>.
   </p>
 </div>
 
-<div class="card" v-click>
-  <div class="text-2xl accent"><carbon:earth-southeast-asia /></div>
-  <div class="font-semibold mt-1">Priced for Laos</div>
-  <p class="text-sm muted mt-2">
-    A Day Pass is <span class="data">$6.30</span> <span class="subtle">(₭135,000)</span>
-    because our marginal cost per photo is compute we already own — not a line item
-    someone else invoices us for.
+<div class="card !py-3" v-click>
+  <div class="flex items-center gap-2 accent">
+    <div class="text-xl leading-none"><carbon:currency-dollar /></div>
+    <div class="data text-xs">03</div>
+  </div>
+  <div class="font-semibold mt-1">Therefore: a lower price, and margin left over</div>
+  <div class="text-xs accent">A <span class="data">₭135,000</span> day, not a per-call bill</div>
+  <p class="text-xs muted mt-2 leading-snug">
+    The whole Day Pass would go to inference before we served a single download. Owning the
+    compute is the only reason the pass can be <span class="data">$6.30</span> and still leave
+    something behind at a Laos price point.
+  </p>
+</div>
+
+<div class="card !py-3" v-click>
+  <div class="flex items-center gap-2 accent">
+    <div class="text-xl leading-none"><carbon:security /></div>
+    <div class="data text-xs">04</div>
+  </div>
+  <div class="font-semibold mt-1">No vendor risk</div>
+  <div class="text-xs accent">The cost of an event is fixed, and it is ours</div>
+  <p class="text-xs muted mt-2 leading-snug">
+    Rate limits, price changes and model deprecation all sit outside our control if the
+    inference is rented. We know what an event costs before the shoot starts.
   </p>
 </div>
 
 </div>
 
-<style scoped>
-/* The left table is inside a card; default row padding pushes it past the card edge. */
-td, th { padding: .28rem .5rem !important; line-height: 1.3; border-top: 0 !important; }
-table { margin: .5rem 0 0 !important; }
-</style>
+<div class="card !py-2 mt-3">
+  <div class="flex items-center gap-6 flex-wrap">
+    <div class="text-xs muted">A mid-size marathon<br /><span class="data">8,000</span> photos</div>
+    <div class="text-xs">
+      What the creator pays us
+      <div><span class="data text-base">$6.30</span> <span class="subtle">₭135,000</span>
+      <span class="subtle">· shipped price</span></div>
+    </div>
+    <div class="text-xs">
+      What a per-call API would bill us
+      <div><b class="data accent text-base">$8–24</b> <span class="subtle">₭172,000+</span></div>
+    </div>
+    <p class="text-xs subtle flex-1 min-w-[220px] !my-0 leading-snug">
+      At <span class="data">$0.001</span> per image — commodity face-API pricing, not a quote we
+      hold. Every photo needs detection, fingerprinting and number reading, so it is billed more
+      than once.
+    </p>
+  </div>
+</div>
 
 <!--
 [2:40 — 3:00] The argument that separates us from a hackathon project that wraps an API.
-Say the comparison out loud, slowly: the photographer pays us $6.30 for the whole day, and
-a per-call API would bill us more than that on one event — before a single download is sold.
-Owning the model is what makes the $6.30 pass possible, and it is also why we can say faces
-never leave our infrastructure, which is where the next slide picks up.
+Four cards, three clicks — read the chain, do not read the cards.
+
+01 no third party → [click] 02 which is why the cost per photo is ours to optimize →
+[click] 03 which is why the Day Pass can be $6.30 and still leave margin. Say the strip
+out loud, slowly: the photographer pays us $6.30 for the whole day, and a per-call API
+would bill us more than that on one event — before a single download is sold.
+
+[click] 04 is the one-liner for the judge who asks "why not just use an API": the cost
+would not be ours to control.
 
 The $0.001 per image is a public commodity rate, not a quote we hold — the slide says so.
 Do not name a vendor.
@@ -460,8 +544,8 @@ at the end.
 <div class="card mt-4">
   <div class="text-sm font-semibold">Payment where the money already is</div>
   <p class="text-xs muted mt-2">
-    Checkout hands off to <b>BCEL One</b>, <b>LDB</b>, <b>JDB</b> or Lao QR — the banking apps
-    guests already have. Confirmation comes back in real time, and we store no card or
+    Checkout hands off to <b>Lao QR</b> and online payment — the banking apps guests
+    already have. Confirmation comes back in real time, and we store no card or
     account data.
   </p>
   <p class="text-xs muted mt-2">
@@ -477,7 +561,7 @@ at the end.
 of judges; showing that we thought about it is worth more than another feature.
 
 Left column: say two of the four, not all four. Right column is the differentiator against
-any imported competitor — Google Photos does not take BCEL One.
+any imported competitor — Google Photos does not take Lao QR.
 
 If asked about the demo imagery: our own landing page labels its people as illustrative,
 not real event guests. On a face-recognition product that is an ethics decision too.

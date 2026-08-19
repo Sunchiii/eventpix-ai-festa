@@ -33,23 +33,24 @@ Pace is roughly 140 words per minute — if you run fast, the slack is in slide 
 
 ---
 
-## 2 — The week after every event · `0:20 – 0:50`
+## 2 — One guest, three steps · `0:20 – 0:50`
 
-> Something most of us have lived.
+> Picture one guest at a marathon. Today her photos sit in a folder nobody can search,
+> and the photographer who took them never gets paid.
 >
-> **[click]** You just ran a marathon. Somewhere in the eight thousand photos shot
-> that morning there are five of you, and you would happily pay for them.
+> **[click]** Eight thousand photos are shot before eight in the morning. Five of them
+> are her.
 >
-> **[click]** The album link arrives three days late — thousands of photos in one
-> folder. You scroll for ten minutes and give up.
+> **[click]** So how does she find hers? She takes one selfie. No app to install, no
+> account to create.
 >
-> **[click]** You find one anyway, and checkout asks for a card most people here
-> don't have. So you message the photographer instead: *can you send me the ones
-> I'm in?* And they answer by hand, one guest at a time, for a week.
+> **[click]** And she pays by scanning a QR code — Lao QR, and online payment through
+> the banking app already in her pocket. Then the photos are hers.
 >
-> **[click]** The photo exists. The person in it never sees it. **Nobody gets paid.**
+> **[click]** Three steps. No app, no card.
 
-*(Pause on that line for a beat before moving.)*
+*(The slide is three pictures — don't read the headlines out loud. Land the last line,
+pause a beat, move on.)*
 
 ---
 
@@ -129,21 +130,29 @@ volunteer them. See the Q&A section if a judge presses.)*
 
 ---
 
-## 7 — Why self-hosted, not an API · `2:40 – 3:00`
+## 7 — Why EventPix is different · `2:40 – 3:00`
 
-> Three reasons, and they're all the same reason.
+> One decision, and everything else on this slide follows from it. We run the models
+> ourselves — detection, embeddings, bib reading — on machines we operate. Nothing
+> biometric goes to anyone else's endpoint.
 >
-> **[click]** Zero cost per inference. Eight thousand photos an event, every one
-> getting detection, embedding and OCR — per-call pricing would cost more than the
-> event earns.
+> **[click]** Which means the cost per photo is ours to optimize. Every photo is
+> processed once, at upload, not again on every search — so the eight-thousand-and-first
+> photo of an event costs zero.
 >
-> **[click]** Faces never leave our infrastructure. You cannot promise that while
-> posting biometric data to someone else's endpoint.
+> **[click]** And that is the only reason a Day Pass can be six dollars thirty. A
+> per-call API would bill us eight to twenty-four dollars on this one event — more than
+> the whole pass, before a single download is sold.
 >
-> **[click]** And a Day Pass at six dollars thirty only exists because our marginal
-> cost is compute we already own.
+> **[click]** Last one: rented inference means rented pricing. Rate limits, price
+> changes, deprecations — all outside our control. We know what an event costs before
+> the shoot starts.
 >
 > The unit economics *are* the architecture.
+
+*(The $0.001 per image is a public commodity rate, not a quote we hold — do not name a
+vendor. If pressed on volume discounts: they exist and they don't change the argument —
+the point is whose line item the marginal cost is.)*
 
 ---
 
@@ -172,7 +181,7 @@ volunteer them. See the Q&A section if a judge presses.)*
 > And it's built for Laos, not translated into it. Lao is the product's fallback
 > language; English is secondary.
 >
-> Checkout hands off to BCEL One, LDB, JDB or Lao QR — the apps guests already have.
+> Checkout hands off to Lao QR and online payment — the apps guests already have.
 > We store no card or account data. Card penetration here is low, so a checkout that
 > assumes a Visa card converts at nearly zero. The payment rail isn't a detail; it's
 > the product working or not working.
@@ -276,7 +285,7 @@ traction slide out loud — nineteen events in a week is not nine hundred a year
 > whole model hangs on, and I'd rather come back to you with it than guess from one week.
 
 **"Isn't this just Google Photos?"**
-> Google Photos doesn't take BCEL One, doesn't pay a photographer, and doesn't let a
+> Google Photos doesn't take Lao QR, doesn't pay a photographer, and doesn't let a
 > guest search an event they have no account for. We're not a personal photo library;
 > we're the sales channel between a photographer and the people in their frames.
 
