@@ -4,7 +4,7 @@
 
 Word-for-word spoken script. Timings match the presenter notes in `slides.md`.
 Pace is roughly 140 words per minute — if you run fast, the slack is in slide 6
-(bib search) and slide 8 (the three architecture cards), in that order.
+(bib search) and slide 10 (the market slide), in that order.
 
 **Delivery rules**
 - The demo on slide 4 is the pitch. Everything before it earns attention for it;
@@ -156,23 +156,7 @@ the point is whose line item the marginal cost is.)*
 
 ---
 
-## 8 — Architecture · `3:00 – 3:25`
-
-> One photo's path, end to end: the camera uploads straight into the event, our API queues
-> it, our AI engine does the faces and the bib numbers, the results go into the photo store,
-> and the gallery updates live while the shoot is still going.
->
-> That middle box is one box on purpose — what's inside it is ours.
->
-> **[click]** One thing I'll pick out: we run an **upload server inside the API itself**.
-> Sony, Canon and Nikon bodies can upload over FTP natively — so the photographer configures
-> the camera once and never opens a laptop at the venue again.
-
-*(Slack slide: the three cards are droppable. Don't read all three.)*
-
----
-
-## 9 — Responsible faces, built for Laos · `3:25 – 3:50`
+## 8 — Responsible faces, built for Laos · `3:00 – 3:25`
 
 > This is a face-recognition product, so: selfies are deleted within the hour, and
 > embeddings are stored against photos, not people. There is no face-to-name index
@@ -188,7 +172,7 @@ the point is whose line item the marginal cost is.)*
 
 ---
 
-## 10 — How it makes money · `3:50 – 4:20`
+## 9 — How it makes money · `3:25 – 3:55`
 
 > Two revenue lines. Creators subscribe for storage — six plans, and the Day and Week
 > passes exist because most photographers work per event, not per month.
@@ -206,6 +190,31 @@ the point is whose line item the marginal cost is.)*
 >
 > The prices and the split are real — they're the product's defaults. The conversion
 > rate is a guess, and I'm calling it one.
+
+---
+
+## 10 — Proven next door. First at home. · `3:55 – 4:20`
+
+> Before the volume: does anybody actually pay for an event photo? In Thailand, yes. ThaiRun
+> runs face and bib search for runners, and it's reported to sell about forty thousand race
+> photos a month — with more than eighty percent of that going back to the photographer.
+> Their numbers, not ours, and the slide says so.
+>
+> So the model isn't a hypothesis. Somebody one border away already proved that a guest will
+> pay for the photo she finds.
+>
+> And in Laos, nobody has built it. No face search on an event gallery, no bib-number search,
+> and no way for a photographer to actually get paid — so the photos get given away.
+>
+> **EventPix is the first AI event-photo platform in Laos.** First here, then the same rail
+> across ASEAN — the AI doesn't care which country the marathon is in. The payment rail does,
+> and that's the part we build per market.
+
+*(Say "reported" before the ThaiRun number. Don't imply we operate in Thailand — it's the
+comparable, not a market we've entered, and no EventPix number is derived from theirs. If a
+judge names a competitor in Laos, concede the specific and hold the general: nobody here does
+face search, bib search and a kip payout in one product. This is the slack slide if you're
+long — it's positioning, not product.)*
 
 ---
 
@@ -290,9 +299,22 @@ traction slide out loud — nineteen events in a week is not nine hundred a year
 > we're the sales channel between a photographer and the people in their frames.
 
 **"Does anyone actually pay for event photos?"**
-> Sportograf does it at marathon scale in Europe, so the model is proven — but nobody
-> has proven it in Laos. That's the honest answer, and it's exactly why the bank-app
-> checkout matters as much as the AI does.
+> Next door they do. ThaiRun sells about forty thousand race photos a month in Thailand off
+> face and bib search — that's their reported figure, and it's the slide with the two columns.
+> Sportograf does the same thing at marathon scale in Europe. What nobody has proven is that it
+> works in Laos, and that's exactly why the bank-app checkout matters as much as the AI does.
+
+**"How can you claim you're first in Laos?"**
+> Because no platform in this country does any of the three: face search on an event gallery,
+> bib-number search, or paying a photographer out in kip through Lao QR. If you know of one,
+> tell me the name and I'll take the specific — but the general claim stands, and it's the
+> reason photographers here give their work away instead of selling it.
+
+**"What stops ThaiRun — or anyone — coming to Laos?"**
+> Not the model; they have it. The payment rail and the product language. An entrant has to
+> rebuild checkout and payouts on Lao QR and ship Lao-first, which is the same reason Google
+> Photos isn't a competitor here. That's a market to enter, not a feature to add — and while
+> they'd be building it, we'd already have the events.
 
 **"What's the risk you haven't retired?"**
 > The technical risk is gone — it's built and live, and people are using it. What nobody has shown

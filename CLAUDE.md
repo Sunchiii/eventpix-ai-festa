@@ -72,6 +72,32 @@ header says so — and none of it landed. Its marigold/lacquer palette, Hanken/B
 "confidence ring" were all in an earlier draft of this deck and were wrong. Do not reintroduce
 them.
 
+### Vertical rhythm — the bottom of a slide
+
+The canvas is **980 × 552** and `.slidev-layout` is `px-14 py-10`, so content has **868 × 472**
+to live in and the safe bottom edge is **y = 512**. Anything below that sits in the padding;
+anything below 552 is silently clipped. The decorative corner mark (`style.css`, `::after`)
+occupies x 35–53 / y 510–528, so left-aligned footnotes must clear 512 too.
+
+Every content slide is tuned so its lowest painted element lands in a **470–512** band — that
+is what keeps the deck from jumping as you advance. The cover is the exception and the script
+flags it as "dead-space": its text block sits high on purpose over a full-bleed mosaic. When editing a slide, re-check it with
+`scripts/measure-slides.mjs`: start `pnpm dev`, then `node scripts/measure-slides.mjs`. It walks
+every text range and media box in the visible `.slidev-layout` at its final click state and
+prints the max bottom per slide (and per column on `two-cols-header`), plus a screenshot of each
+slide into `shots/`. It needs `playwright-chromium`, which is a devDep (also what `pnpm export`
+uses).
+
+**Utility classes on a `<p>` need a `!` prefix.** Slidev's base sets `.slidev-layout p { @apply
+my-4 leading-6 }`, which outranks a plain `mt-3` or `leading-snug` — those were silently doing
+nothing, which is what pushed several slides past the bottom edge. Write `!mt-3`, `!leading-snug`
+on paragraphs; the utilities are fine unprefixed on `div`s.
+
+A slide's `<style scoped>` block *can* reach a child component's root element (Vue puts the
+parent's scope id there), which is how slides 3, 6 and 10 shave `PipelineStage`'s `.stage`
+padding and slide 11 resizes `ScaleBar`'s track. Use that instead of editing the component when
+only one slide is tight.
+
 Fonts are **self-hosted** via `@fontsource` with `fonts.provider: none`, so the deck renders
 identically with no network at the venue. Don't switch back to the Google provider.
 
@@ -95,6 +121,19 @@ Every figure in the deck traces to the EventPix repo. Do not add claims the sour
   one week of soft opening (as of 2026-08-19). They are not in the repo and cannot be verified
   from it. Do not change, round up, extrapolate, annualize, or derive revenue from them, and do
   not add any other usage number without the user supplying it the same way.
+
+**The market slide is external, and cited.** "Proven next door. First at home." carries the only
+figures in the deck that come from outside both the repo and the team: ThaiRun / `photo.thai.run`
+in Thailand runs Face X (face and bib search for runners) and is reported to sell ~40,000 race
+photos a month, returning 80%+ of revenue to the photographer. These are *reported* figures from
+Thai press ([SME Thailand Club](https://www.smethailandclub.com/startup-techstartup/4811.html)),
+labelled as such on the slide — do not round them, extrapolate from them, present Thailand as a
+market EventPix operates in, or derive any EventPix number from them. The claim "EventPix is the
+first AI event-photo platform in Laos" is **user-supplied**, same standing as the traction numbers:
+not verifiable from the repo or any source, stated flat on purpose, and defended on the slide by
+the three things no Lao platform does (face search, bib search, kip payout via Lao QR). Do not
+soften it and do not add a market-size figure — no credible TAM number for Laos or the region
+exists, and a soft one would undercut the sourcing discipline that makes the rest of the deck work.
 
 **The two modelled slides.** "One event, in USD" walks a single marathon through the revenue
 split. Its hard numbers are the shipped defaults a creator sees when they create a monetized
