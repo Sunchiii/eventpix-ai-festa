@@ -1,6 +1,6 @@
 # EventPix — Pitch Script
 
-**AI Youth Festa · ~6 minutes · 14 slides**
+**AI Youth Festa · ~6.5 minutes · 15 slides**
 
 Word-for-word spoken script. Timings match the presenter notes in `slides.md`.
 Pace is roughly 140 words per minute — if you run fast, the slack is in slide 6
@@ -10,12 +10,14 @@ Pace is roughly 140 words per minute — if you run fast, the slack is in slide 
 - The demo on slide 4 is the pitch. Everything before it earns attention for it;
   everything after it justifies it. Do not talk over the video.
 - Say every assumed number *as* an assumption, before you say the number.
+- The three SDG tiles sit inline on slides 2, 5 and 9. Each is one sentence, and each is a
+  *mechanism the product ships*, never a measured outcome. We have measured no impact.
 - The traction on slide 13 is measured, one week of soft opening. Say it exactly as it is
   written and go no further — no extrapolation, no annual figures, no revenue implied from it.
 - **Model names, dimensions and thresholds are off the slides on purpose.** Speak at the
   level of the slide. The specifics live in the Q&A section below — give them once, only if
   a judge presses, and offer a private walkthrough rather than more detail into the room.
-- At six minutes there is no room to recover a lost slide. If you fall behind, drop
+- At six and a half minutes there is no room to recover a lost slide. If you fall behind, drop
   the slack items above rather than speeding up.
 
 ---
@@ -33,7 +35,7 @@ Pace is roughly 140 words per minute — if you run fast, the slack is in slide 
 
 ---
 
-## 2 — One guest, three steps · `0:20 – 0:50`
+## 2 — One guest, three steps · `0:20 – 0:53`
 
 > Picture one guest at a marathon. Today her photos sit in a folder nobody can search,
 > and the photographer who took them never gets paid.
@@ -48,13 +50,17 @@ Pace is roughly 140 words per minute — if you run fast, the slack is in slide 
 > the banking app already in her pocket. Then the photos are hers.
 >
 > **[click]** Three steps. No app, no card.
+>
+> And that is UN Goal three on the corner of this slide — runs and community gatherings.
+> The finish-line photo is the reward people talk about and almost never actually receive.
+> We make it findable.
 
 *(The slide is three pictures — don't read the headlines out loud. Land the last line,
 pause a beat, move on.)*
 
 ---
 
-## 3 — What EventPix does · `0:50 – 1:10`
+## 3 — What EventPix does · `0:53 – 1:13`
 
 > EventPix fixes all three. You upload as you shoot; we find every face and every bib
 > number, watermark the previews, and take payment through the bank apps your guests
@@ -70,7 +76,7 @@ pause a beat, move on.)*
 
 ---
 
-## 4 — The moment, in the real product · `1:10 – 1:50`
+## 4 — The moment, in the real product · `1:13 – 1:53`
 
 *(Start the video. Then talk over almost none of it.)*
 
@@ -91,7 +97,7 @@ marathon ships blue. The app chrome is always EventPix red.)*
 
 ---
 
-## 5 — The AI · Face search · `1:50 – 2:20`
+## 5 — The AI · Face search · `1:53 – 2:23`
 
 > Here's how that works — and this is the part I want to be precise about: **every model
 > runs on our own infrastructure. No third-party AI service ever sees a photo.**
@@ -107,13 +113,16 @@ marathon ships blue. The app chrome is always EventPix red.)*
 >
 > The backend ranks every result. The gallery shows the match count today — the per-photo
 > score is computed, we just haven't put it on the tile yet.
+>
+> And that is UN Goal nine, in the corner: a country that usually consumes this technology is
+> running it instead, and the skills stay here.
 
 *(The model, the dimensions and the thresholds are deliberately not on this slide. Do not
 volunteer them. See the Q&A section if a judge presses.)*
 
 ---
 
-## 6 — Bib search · `2:20 – 2:40`
+## 6 — Bib search · `2:23 – 2:43`
 
 > Marathons are our hardest case and our best one: eight thousand photos, and every runner
 > is wearing their primary key.
@@ -130,7 +139,7 @@ volunteer them. See the Q&A section if a judge presses.)*
 
 ---
 
-## 7 — Why EventPix is different · `2:40 – 3:00`
+## 7 — Why EventPix is different · `2:43 – 3:06`
 
 > One decision, and everything else on this slide follows from it. We run the models
 > ourselves — detection, embeddings, bib reading — on machines we operate. Nothing
@@ -156,14 +165,15 @@ the point is whose line item the marginal cost is.)*
 
 ---
 
-## 8 — Responsible faces, built for Laos · `3:00 – 3:25`
+## 8 — Responsible faces, built for Laos · `3:06 – 3:31`
 
 > This is a face-recognition product, so: selfies are deleted within the hour, and
 > embeddings are stored against photos, not people. There is no face-to-name index
 > to leak. Uploads are private until a creator releases them by hand.
 >
 > And it's built for Laos, not translated into it. Lao is the product's fallback
-> language; English is secondary.
+> language; English is secondary — access in the local language is the first condition
+> of any of this mattering.
 >
 > Checkout hands off to Lao QR and online payment — the apps guests already have.
 > We store no card or account data. Card penetration here is low, so a checkout that
@@ -172,7 +182,7 @@ the point is whose line item the marginal cost is.)*
 
 ---
 
-## 9 — How it makes money · `3:25 – 3:55`
+## 9 — How it makes money · `3:31 – 4:04`
 
 > Two revenue lines. Creators subscribe for storage — six plans, and the Day and Week
 > passes exist because most photographers work per event, not per month.
@@ -190,10 +200,14 @@ the point is whose line item the marginal cost is.)*
 >
 > The prices and the split are real — they're the product's defaults. The conversion
 > rate is a guess, and I'm calling it one.
+>
+> And that split is Goal eight, the tile under it. A photographer in Laos has no way to sell
+> an event photo today, so the photos get given away. Seventy percent of every sale, in kip,
+> is not a promise we're making — it's what the product already does.
 
 ---
 
-## 10 — Proven next door. First at home. · `3:55 – 4:20`
+## 10 — Proven next door. First at home. · `4:04 – 4:29`
 
 > Before the volume: does anybody actually pay for an event photo? In Thailand, yes. ThaiRun
 > runs face and bib search for runners, and it's reported to sell about forty thousand race
@@ -218,7 +232,7 @@ long — it's positioning, not product.)*
 
 ---
 
-## 11 — How big this gets · `4:20 – 4:40`
+## 11 — How big this gets · `4:29 – 4:49`
 
 > So the unit is real: a hundred and thirty-two dollars to us per event of that size — a hundred
 > and twenty-six from downloads, plus the Day Pass the photographer bought to run it. And the
@@ -238,7 +252,7 @@ traction slide out loud — nineteen events in a week is not nine hundred a year
 
 ---
 
-## 12 — What's built, and what's next · `4:40 – 5:00`
+## 12 — What's built, and what's next · `4:49 – 5:09`
 
 > Face search, bib number search, camera ingest, the live gallery, payments and payouts are
 > all working today.
@@ -251,7 +265,7 @@ traction slide out loud — nineteen events in a week is not nine hundred a year
 
 ---
 
-## 13 — One week of soft opening · `5:00 – 5:20`
+## 13 — One week of soft opening · `5:09 – 5:29`
 
 > We soft-opened a week ago. Twenty thousand five hundred photos have gone through the
 > pipeline since. Five and a half thousand guests came to look for themselves — five
@@ -266,7 +280,29 @@ traction slide out loud — nineteen events in a week is not nine hundred a year
 
 ---
 
-## 14 — Close · `5:20 – 5:40`
+## 14 — The team · `5:29 – 5:59`
+
+> Three of us built all of this: Dr Savath Saypadith, Mr Chilanhouth Nitvongkhay and
+> Mr Lasun Vongveodee.
+>
+> Six months, six hundred and seventy-one commits, between February and August this year.
+> Face recognition, bib reading, camera ingest, payments and payouts — we wrote the AI
+> serving, the backend, the app and the checkout integration. Nothing in it is a bought
+> component.
+>
+> And it is not a prototype. It is live, and last week it carried twenty thousand photos
+> and a five-hundred-guest hour.
+>
+> What we build next is not more features. It is organizer relationships — one fleet contract
+> brings many events with it, and that is the only multiplier that matters to us now.
+
+*(Evidence, not credentials. The commit count and the date range are the proof this is not a
+hackathon weekend. Say the three names and nothing more about them — no titles, no backgrounds.
+That is the team's own decision. Do not claim expertise, awards or prior companies.)*
+
+---
+
+## 15 — Close · `5:59 – 6:19`
 
 > Somewhere there's a photo of you that you have never seen.
 >
@@ -292,6 +328,26 @@ traction slide out loud — nineteen events in a week is not nine hundred a year
 **"What revenue did those nineteen events make?"**
 > Too early to quote. We're measuring download conversion now — that's the number the
 > whole model hangs on, and I'd rather come back to you with it than guess from one week.
+
+**"Which SDGs does this address?"**
+> Eight, three and nine — the three tiles you saw on the slides. Eight is the core one: a photographer here has no way to sell an
+> event photo today, and the shipped split pays them seventy percent of every sale attributed
+> to their own frames. Three, because the events are runs and community gatherings and the
+> finish-line photo is the reward people never actually get. Nine, because the AI is built and
+> operated in Laos rather than rented from abroad. What I won't do is give you an impact
+> number — we are one week into soft opening and we haven't measured one.
+
+**"Who is on the team?"**
+> Dr Savath Saypadith, Mr Chilanhouth Nitvongkhay and Mr Lasun Vongveodee. Between us we wrote
+> the AI serving, the backend, the app and the payment integration: six hundred and seventy-one commits over six months, and it is live and
+> carrying load. No part of the stack is outsourced.
+
+**"How does this scale beyond Laos?"**
+> The AI half is already portable — the models, face and bib search, the gallery, per-photo
+> attribution and the split engine are not country-specific. What gets rebuilt per market is
+> the payment rail and the product language. That's why we go country by country rather than
+> launching regionally, and it's also the moat: it's the work an entrant would have to redo
+> to come here.
 
 **"Isn't this just Google Photos?"**
 > Google Photos doesn't take Lao QR, doesn't pay a photographer, and doesn't let a

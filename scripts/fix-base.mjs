@@ -17,7 +17,7 @@ const prefix = base.slice(0, -1) // "/eventpix-ai-festa"
 const escape = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 // Everything in public/ that the sources reference by absolute path.
-const targets = ['/landing/', '/eventpix-logo.svg']
+const targets = ['/landing/', '/sdg/', '/team/', '/eventpix-logo.svg']
 const rules = targets.map((t) => ({
   re: new RegExp(`(?<!${escape(prefix)})${escape(t)}`, 'g'),
   to: prefix + t,

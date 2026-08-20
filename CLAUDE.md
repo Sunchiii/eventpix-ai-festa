@@ -5,7 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project
 
 A [Slidev](https://sli.dev/) deck: the **EventPix** pitch for the AI Youth Festa competition
-(~10 minutes, 20 slides, English). It presents the product built at
+(~6.5 minutes, 15 slides, English). `KEP.jpeg` is the competition's Document Review scoring
+table — five weighted criteria the deck is built to answer: AI technology & innovation (30),
+business viability (20), SDG contribution & social impact (20), ASEAN market readiness &
+global scalability (20), team & execution capability (10). It presents the product built at
 `/Users/lasun/projects/eventpix` — an AI-powered event-photo discovery and monetization
 platform for the Laos market.
 
@@ -32,10 +35,42 @@ No test or lint setup exists.
   - `DemoVideo.vue` — plays/pauses with `onSlideEnter`/`onSlideLeave`.
   - `ScaleBar.vue` — labelled horizontal bar for the scale slide; `pct` is the fill width and
     `tone` (0-2) indexes the same three-tone red ramp the revenue split uses.
+  - `TeamMember.vue` — round photo + name + role row for the team slide. `photo` is a
+    `/team/<file>` path; if it is absent or fails to load the avatar falls back to the
+    member's initials (the honorific is skipped), so the slide never shows a broken image.
+  - `SdgNote.vue` — one official UN SDG tile plus a single line of copy; `side="right"` flips
+    the tile to the other end. The artwork is scaled and otherwise untouched — see below.
 - `style.css` — auto-loaded global styles: self-hosted `@fontsource` imports, the `--ep-*` brand
   tokens (with an `.ep-dark` override for dark slides), and the `.card` / `.chip` / `.match-chip`
   / `.data` / `.accent` / `.muted` / `.subtle` / `.lao` helpers the slides use.
 - `public/eventpix-logo.svg` — the real logo, copied from the frontend; used as a CSS mask.
+- `public/sdg/sdg-0{3,8,9}.png` — the official UN flat goal icons from
+  `sdgs.un.org/sites/default/files/goals/E_SDG_Icons-0N.jpg`, scaled to 200px and nothing else.
+  Referenced as `/sdg/<file>`, so the path prefix **must stay in `scripts/fix-base.mjs`'s
+  `targets`** or they 404 on the Pages subpath deploy.
+- `public/team/{savath,chilanhouth,lasun}.jpg` — the three team headshots, referenced as
+  `/team/<file>`, so the prefix **must stay in `scripts/fix-base.mjs`'s `targets`**. All three
+  are 512×512 square crops, because `TeamMember.vue` renders them as circles with
+  `object-fit: cover`. Sources: `savath.jpg` from Laligence's public about page
+  (`laligence.ai/images/savath.JPEG`, already square); `chilanhouth.jpg` and `lasun.jpg` were
+  supplied by the team as CMS URLs (`cms.laligence.ai/uploads/…`) and are **tight face crops**
+  of full-length photos — the originals are a conference shot with a microphone and a casual
+  garden photo, and the crop is what makes them sit level with the studio portrait. Recrop from
+  the original rather than rescaling these if a bigger version is ever needed. Do not substitute
+  stock or generated portraits.
+
+  Chilanhouth's crop offset is load-bearing: a bright yellow banner sits immediately left of his
+  head in the original, and at a wider crop it lands inside the circle roughly 27px from the face
+  centre — too close for the desaturation mask below to remove without greying the face. The
+  420px crop at (300, 120) is the widest one that keeps the whole face and zero yellow.
+
+  **The avatars desaturate their background only.** `TeamMember.vue` stacks two copies of the
+  photo: a `grayscale(1)` base, and a full-colour copy on top masked to a centred radial
+  gradient, so skin keeps its colour and the surroundings go neutral. This is what lets a
+  conference snapshot and a garden photo sit beside a studio portrait without looking like three
+  unrelated images. Measured on the rendered slide, background rings come out at 0–0.01
+  saturation against 0.27–0.36 on the faces. If you change the crop, re-check the mask stops —
+  they are tuned to these three images.
 - `public/landing/*` — imagery and the demo video, copied from
   `eventpix/frontend/public/landing/`. Referenced as `/landing/<file>`; filenames are
   content-hashed, so re-copying from the source repo may change them.
@@ -94,8 +129,9 @@ nothing, which is what pushed several slides past the bottom edge. Write `!mt-3`
 on paragraphs; the utilities are fine unprefixed on `div`s.
 
 A slide's `<style scoped>` block *can* reach a child component's root element (Vue puts the
-parent's scope id there), which is how slides 3, 6 and 10 shave `PipelineStage`'s `.stage`
-padding and slide 11 resizes `ScaleBar`'s track. Use that instead of editing the component when
+parent's scope id there), which is how "What EventPix does",
+"Bib search", "Proven next door" and "The team" shave `PipelineStage`'s `.stage` padding
+and "How big this gets" resizes `ScaleBar`'s track. Use that instead of editing the component when
 only one slide is tight.
 
 Fonts are **self-hosted** via `@fontsource` with `fonts.provider: none`, so the deck renders
@@ -111,16 +147,56 @@ Every figure in the deck traces to the EventPix repo. Do not add claims the sour
   "{n} face matches found". The percentage visual the deck does use (`components/FaceBox.vue`)
   mirrors `frontend/components/landing/face-box.tsx`, which is landing decoration with
   hardcoded values — the backend genuinely computes `confidence = 1 − distance`, but nothing
-  renders it per photo yet. Slide 9 says so explicitly; keep that sentence.
+  renders it per photo yet. "The AI · Face search" says so explicitly; keep that sentence.
 - NSFW classification is a stub (`processor/app/services/nsfw_service.py` returns 0.0) and
   belongs only on the roadmap slide.
 - The ≤2s-over-10K-photos figure is a spec target, not a benchmark — roadmap slide only.
-- **Traction is user-supplied, not repo-derived.** Slide 12 ("One week of soft opening") carries
+- **Traction is user-supplied, not repo-derived.** "One week of soft opening" carries
   the only usage numbers in the deck — 26 creators / 20 on paid tiers, 19 events, 20,589 photos,
   5.62k unique visitors, 525 peak visitors/hour, 1,673,310 requests — reported by the team from
   one week of soft opening (as of 2026-08-19). They are not in the repo and cannot be verified
   from it. Do not change, round up, extrapolate, annualize, or derive revenue from them, and do
   not add any other usage number without the user supplying it the same way.
+
+**SDG impact is argued qualitatively, and it has no slide of its own.** Goals 8, 3 and 9 are
+carried by three `SdgNote` tiles placed inline where their evidence already sits: **8** under the
+revenue-split card on "How it makes money", **9** under the left column of "The AI · Face search",
+**3** on the closing line of "One guest, three steps". Each is one sentence, and each states a
+*mechanism the product already ships* — the shipped 70/50 split and per-photo attribution, the
+self-hosted stack, face search making a finish-line photo findable. There are **no impact metrics,
+beneficiary counts, participation effects or environmental figures**, because nothing in the repo
+or the supplied traction can support one. Do not add any. In particular, SDG 3 is a mechanism
+("we make the photo findable"), never a measured effect ("we increased participation in sport").
+The only environmental statement permitted is the architectural one already on "Why EventPix is
+different" — each photo is processed once at upload, not again on every search — with no energy
+or carbon number attached. The fuller spoken argument lives in the presenter notes and in
+`SCRIPT.md`'s "Which SDGs does this address?" answer; that is deliberate, because the deck shows
+the goals and the presenter explains them.
+
+**The SDG artwork is the UN's, and it may only be scaled.** `public/sdg/*` are the official flat
+goal icons. Per the UN's SDG communications guidelines: no recolouring (not to the deck's red, not
+to charcoal), no cropping, no rotation, no distortion, no UN emblem, and nothing that implies the
+UN endorses EventPix. `SdgNote.vue` therefore styles the line, never the `<img>` beyond width and
+height. If a tile ever needs to be smaller than ~30px, cut the line instead — below that the goal
+number stops reading and the tile is decoration.
+
+**Team facts are user-supplied.** The team slide names three people — **Dr Savath Saypadith,
+Mr Chilanhouth Nitvongkhay, Mr Lasun Vongveodee** — and they have the same standing as the
+traction numbers: they come from the team, not the repo, and must not be embellished with
+expertise, awards or prior companies. Two standing constraints, both the team's own choice:
+all three carry the flat label **"Team member"** — do not invent CEO/CTO/AI-lead titles — and
+**no personal background appears on the slide at all**. That includes Dr Savath's public
+academic record (PhD Osaka University, lecturer at NUOL, published face-recognition work); it
+is verifiable and it is relevant to the AI criterion, and it is still excluded on purpose. Do
+not re-add it.
+
+The execution evidence beside them *is* repo-derived and verifiable — 671 commits between
+2026-02-12 and 2026-08-18 in `/Users/lasun/projects/eventpix` (`git log`). Re-derive it rather
+than trusting the number here if the source repo has moved on. The git identities do **not**
+map one-to-one onto the three named people: Lasun Vongveodee commits as `Rachan Lamoolphal` /
+`Sunchii` (626), and `Khatthaphone` (45) is a contributor who is not on the team slide. That is
+why the deck states the commit count and date range but never a contributor *count* — it used
+to say "two people built all of it", and that line is gone on purpose.
 
 **The market slide is external, and cited.** "Proven next door. First at home." carries the only
 figures in the deck that come from outside both the repo and the team: ThaiRun / `photo.thai.run`
@@ -161,7 +237,7 @@ primary figure on every slide and the kip original sits beside it in `.subtle` t
 do not let the two drift apart, and do not drop the kip original (it is what ties the numbers to
 the shipped app).
 
-The per-event gallery themes on slide 6 are real: five presets in `frontend/lib/event-themes.ts`
+The per-event gallery themes named in the demo slide's presenter note are real: five presets in `frontend/lib/event-themes.ts`
 (marathon ships **blue** `#1D6FE8`, which is why the demo video and screenshots are blue).
 
 ## Deployment

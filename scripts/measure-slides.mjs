@@ -10,7 +10,7 @@ import fs from 'node:fs'
 
 const BASE = process.env.BASE || 'http://localhost:3030'
 const OUT = process.env.OUT || '.'
-const TOTAL = Number(process.env.TOTAL || 14)
+const TOTAL = Number(process.env.TOTAL || 15)
 // Slidev canvas
 const W = 980, H = 552, PAD_BOTTOM = 40
 

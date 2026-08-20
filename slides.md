@@ -10,7 +10,7 @@ info: |
 class: text-left ep-dark
 transition: slide-left
 comark: true
-duration: 6min
+duration: 7min
 fonts:
   # Families are self-hosted via @fontsource (imported in style.css), so the deck
   # never depends on a network connection at the venue.
@@ -155,16 +155,23 @@ layout: default
 
 </div>
 
-<div v-click class="mt-6 text-xl">
-Three steps. <span class="accent">No app, no card.</span>
+<div v-click class="mt-5 flex items-center justify-between gap-8">
+  <div class="text-xl">Three steps. <span class="accent">No app, no card.</span></div>
+  <SdgNote :goal="3" :size="36" class="max-w-[330px]">
+    Runs and community gatherings — the finish-line photo people almost never get.
+  </SdgNote>
 </div>
 
 <!--
-[0:20 — 0:50] One guest's journey, one click per panel — the scale, the question, the
+[0:20 — 0:53] One guest's journey, one click per panel — the scale, the question, the
 answer. The slide only carries the headline; the story is spoken.
 
 Say the problem once before the first click, then don't come back to it. Panel 3 plants
 the bank-app argument for later. Land the closing line, pause, move on.
+
+SDG 3 sits on the closing line. One sentence only, and it is a MECHANISM, not a measured
+effect: we make the finish-line photo findable. Do NOT claim we increased anyone's
+participation in sport — we have not measured that and cannot.
 -->
 
 ---
@@ -212,7 +219,7 @@ previews, and takes payment through the bank apps your guests already use.
 </style>
 
 <!--
-[0:50 — 1:10] One sentence of what it is, then the three roles, then the pipeline line
+[0:53 — 1:13] One sentence of what it is, then the three roles, then the pipeline line
 in a single breath. Don't elaborate — the demo does the real explaining.
 -->
 
@@ -251,7 +258,7 @@ of our idea of it.
 </div>
 
 <!--
-[1:10 — 1:50] THE MONEY SLIDE. Shut up and let it play once through.
+[1:13 — 1:53] THE MONEY SLIDE. Shut up and let it play once through.
 
 Narrate only: "guest opens the gallery link… takes a selfie… and that's every
 photo she's in, sorted by confidence."
@@ -284,6 +291,10 @@ eight people can be found by any one of the eight.
 
 **The search compares fingerprint to fingerprint** — never photo against photo — and
 ranks what it finds by how confident it is. All of it inside our own system.
+
+<SdgNote :goal="9" :size="38" class="!mt-5">
+  AI built and operated in Laos, not rented from abroad.
+</SdgNote>
 
 </div>
 
@@ -345,7 +356,7 @@ The backend ranks every result by confidence; the gallery currently surfaces the
 </div>
 
 <!--
-[1:50 — 2:20] The core of the pitch. Open with the self-hosted line — it is the whole
+[1:53 — 2:23] The core of the pitch. Open with the self-hosted line — it is the whole
 differentiator — then walk the three steps: selfie, fingerprint, ranked matches.
 
 DELIBERATELY NOT ON THE SLIDE: the model, its dimensions and the thresholds. They are
@@ -362,6 +373,9 @@ walkthrough after the session rather than saying it into the room.
 
 If asked about the score: computed and returned per photo, we just render the aggregate
 today. Showing it per-tile is a UI change, not a model change.
+
+SDG 9 sits under the left column. One line: a country that usually consumes this technology
+is running it instead, and the skills stay here. Do not labour it.
 -->
 
 ---
@@ -401,7 +415,7 @@ Runs once at upload, per event, opt-in. The guest just types their race number.
 </style>
 
 <!--
-[2:20 — 2:40] One point only: step 3 is where naive implementations fail. Number reading
+[2:23 — 2:43] One point only: step 3 is where naive implementations fail. Number reading
 is never clean, so an exact-match-only search returns an empty gallery and the runner
 assumes there are no photos of them.
 
@@ -498,7 +512,7 @@ layout: default
 </div>
 
 <!--
-[2:40 — 3:00] The argument that separates us from a hackathon project that wraps an API.
+[2:43 — 3:06] The argument that separates us from a hackathon project that wraps an API.
 Four cards, three clicks — read the chain, do not read the cards.
 
 01 no third party → [click] 02 which is why the cost per photo is ours to optimize →
@@ -550,7 +564,7 @@ layout: two-cols-header
 <p class="lao text-base accent !mt-3 !mb-2">ຄົ້ນຫາດ້ວຍໃບໜ້າຂອງທ່ານ</p>
 
 Lao is the product's fallback language and English is secondary — not a toggle bolted on
-at the end.
+at the end. Access in the local language is the first condition of any of this mattering.
 
 <div class="card mt-4">
   <div class="text-sm font-semibold">Payment where the money already is</div>
@@ -568,7 +582,7 @@ at the end.
 </div>
 
 <!--
-[3:00 — 3:25] Do not skip this slide for time. It is a face-recognition product in front
+[3:06 — 3:31] Do not skip this slide for time. It is a face-recognition product in front
 of judges; showing that we thought about it is worth more than another feature.
 
 Left column: say two of the four, not all four. Right column is the differentiator against
@@ -612,9 +626,14 @@ layout: two-cols-header
   </div>
   <p class="text-xs muted !mt-1 !leading-snug">
     Every sale is attributed to whoever took that photo — so ten photographers on one
-    marathon each get paid for their own frames.
+    marathon each get paid for their own frames. Photographer income is the point, not a
+    by-product.
   </p>
 </div>
+
+<SdgNote :goal="8" :size="34" class="mt-2">
+  A photographer gets paid for the frame they shot — <b>70%</b> of every sale, in kip.
+</SdgNote>
 
 </div>
 
@@ -658,7 +677,7 @@ td, th { padding: .28rem .5rem !important; line-height: 1.3; }
 </style>
 
 <!--
-[3:25 — 3:55] Two revenue lines. Say the assumption BEFORE the number, not after:
+[3:31 — 4:04] Two revenue lines. Say the assumption BEFORE the number, not after:
 "assume 15% of finishers buy — that's the number we're launching to find out."
 Volunteering it is what makes the rest credible.
 
@@ -671,7 +690,7 @@ If asked what risk is left: the technical risk is gone — the product is live a
 What nobody has shown is that a guest in Laos will pay for a photo they might screenshot
 out of a group chat. Watermarked previews and seconds-fast face search are what make them decide.
 
-If asked about national scale: that is the next slide — $126 here plus the Day Pass is
+If asked about national scale: that is two slides on — $126 here plus the Day Pass is
 $132 to the platform per event, and the business scales on event volume and organizer
 fleet contracts. Give the brackets there, and label them as brackets.
 
@@ -679,6 +698,10 @@ If asked whether anyone pays for event photos: that is the next slide — ThaiRu
 40,000 race photos a month in Thailand off face and bib search (their reported figure), and
 Sportograf does it at marathon scale in Europe. Nobody has proven it in Laos — that's the
 honest answer.
+
+SDG 8 is under the split card, and it is the strongest of the three: a photographer in Laos
+has no way to sell an event photo today, and the 70% is the product's shipped default, not a
+promise we are making. No impact metric, no beneficiary count — we have not measured either.
 
 Splits are adjustable but never retroactive. Per-photo prices are configurable;
 ₭40,000 / ₭100,000 / ₭160,000 ($1.85 / $4.65 / $7.45) for 1, 3 and 5 photos are the
@@ -739,25 +762,29 @@ measured by us.
   <PipelineStage n="✗" :shipped="false" title="No photographer paid in kip" detail="No local platform settles a sale through Lao QR — so nobody sells. The photos are given away." />
 </div>
 
-<div class="card !py-2 mt-2">
+<div class="card !py-2 mt-1.5">
   <p class="text-sm font-semibold accent !my-0">EventPix is the first AI event-photo platform in Laos.</p>
-  <p class="text-[11.5px] muted !mt-1.5 !leading-tight">
-    First here, then the same rail across ASEAN. The AI does not care which country the marathon
-    is in — the payment rail does, and that is the part we build per market.
+  <p class="text-[11px] muted !mt-1.5 !leading-tight">
+    <b class="accent">Portable across ASEAN</b> — the models, face and bib search, the gallery,
+    per-photo attribution, the split engine. None of it is country-specific.
+  </p>
+  <p class="text-[11px] muted !mt-1 !leading-tight">
+    <b class="accent">Rebuilt per market</b> — the payment rail and the language. That is the work
+    any entrant has to redo to come here, so we go country by country.
   </p>
 </div>
 
 </div>
 
 <style scoped>
-/* Four stacked blocks in the right column: shave the stage padding so the closing card
-   clears the bottom edge. Works because a child component's root element carries the
-   parent's scope id. */
-.stage { padding-top: .45rem; padding-bottom: .45rem; }
+/* Four stacked blocks in the right column, and the closing card now carries the ASEAN
+   portable/per-market split: shave the stage padding harder so it clears the bottom edge.
+   Works because a child component's root element carries the parent's scope id. */
+.stage { padding-top: .2rem; padding-bottom: .2rem; }
 </style>
 
 <!--
-[3:55 — 4:20] The market slide. Two beats: it works next door, and here it does not exist.
+[4:04 — 4:29] The market slide. Two beats: it works next door, and here it does not exist.
 
 Lead with ThaiRun as VALIDATION, not as a threat. "In Thailand, ThaiRun runs face and bib
 search for runners — reported at about forty thousand race photos sold a month, with more
@@ -846,7 +873,7 @@ table { margin: .4rem 0 0 !important; }
 </style>
 
 <!--
-[4:20 — 4:40] The scale slide. Say "assume" BEFORE each number, same discipline as the
+[4:29 — 4:49] The scale slide. Say "assume" BEFORE each number, same discipline as the
 previous slide — that is what keeps this credible instead of hand-wavy.
 
 Lead with the unit: "the previous slide gave us a hundred and thirty-two dollars to the
@@ -925,7 +952,7 @@ layout: default
 </div>
 
 <!--
-[4:40 — 5:00] Walk the left column first, then the right. Do not pre-empt the traction
+[4:49 — 5:09] Walk the left column first, then the right. Do not pre-empt the traction
 on the next slide.
 
 Being explicit about what is NOT finished buys credibility for the left column. Say the
@@ -979,7 +1006,7 @@ face and bib search, and a five-hundred-guest hour that nobody had to babysit.
 </p>
 
 <!--
-[5:00 — 5:20] This is the slide that answers "is anyone using it", so do not rush it.
+[5:09 — 5:29] This is the slide that answers "is anyone using it", so do not rush it.
 
 Lead with the load, not the vanity number: "one week of soft opening, twenty thousand
 photos through the pipeline, five hundred guests in our busiest hour."
@@ -1000,6 +1027,65 @@ whether the system holds up.
 -->
 
 ---
+layout: two-cols-header
+---
+
+# The team
+
+<p class="muted !-mt-2 text-sm">We built all of it ourselves — the models, the backend, the app and the payments.</p>
+
+::left::
+
+<div class="pr-6 flex flex-col justify-between" style="min-height: 320px">
+
+<TeamMember name="Dr Savath Saypadith" photo="/team/savath.jpg" />
+
+<TeamMember name="Mr Chilanhouth Nitvongkhay" photo="/team/chilanhouth.jpg" />
+
+<TeamMember name="Mr Lasun Vongveodee" photo="/team/lasun.jpg" />
+
+</div>
+
+::right::
+
+<div class="text-sm">
+
+<div class="font-semibold text-base">What we have already executed</div>
+
+<div class="space-y-2 mt-3">
+  <PipelineStage n="01" title="Six months, one product" detail="671 commits between 12 February and 18 August 2026 — face recognition, bib reading, camera ingest, payments and payouts." />
+  <PipelineStage n="02" title="The whole stack is ours" detail="We wrote the AI serving, the backend, the app and the checkout integration. Nothing here is a bought component." />
+  <PipelineStage n="03" title="Live, and carrying load" detail="It is not a prototype. One week of soft opening put twenty thousand photos and a five-hundred-guest hour through it." />
+</div>
+
+<p class="text-xs muted !mt-3 !leading-snug">
+What we are building next is not more features — it is organizer relationships. One fleet
+contract brings many events with it, which is the only multiplier that matters to us now.
+</p>
+
+</div>
+
+<style scoped>
+.stage { padding-top: .45rem; padding-bottom: .45rem; }
+</style>
+
+<!--
+[5:29 — 5:59] Short and factual. Three of us, six months, shipped and live.
+
+The point of this slide is not credentials, it is evidence: the thing on the previous
+thirteen slides exists, is running, and was built by this team. Say the commit count and
+the date range — they are the proof that this is not a hackathon weekend.
+
+Say the three names and nothing more about them. No titles, no backgrounds — that is the
+team's own decision, not an omission to be repaired on stage.
+
+Close on the organizer line: it is the answer to "how do you grow", and it sets up the
+final slide.
+
+Do NOT claim expertise, awards or prior companies that are not on the slide.
+-->
+
+---
 layout: center
 class: text-center
 ---
@@ -1013,7 +1099,7 @@ class: text-center
 <p class="!mt-6 subtle text-sm data">eventpix.ai</p>
 
 <!--
-[5:20 — 5:40] Close on the promise, not on a feature list.
+[5:59 — 6:19] Close on the promise, not on a feature list.
 
 "Somewhere there is a photo of you that you have never seen. We are building the
 thing that hands it to you." Then take questions.

@@ -5,3 +5,7 @@ node_modules
 .remote-assets
 components.d.ts
 dist
+
+# measure-slides.mjs output (regenerated on every run)
+shots
+measure-run.txt
